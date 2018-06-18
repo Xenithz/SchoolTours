@@ -6,7 +6,7 @@ using UnityEngine.Video;
 using Vuforia;
 
 public class Test : MonoBehaviour
-{
+{   
     public GameObject myPanel;
     public VideoPlayer myVideo;
     public RawImage myImage;
