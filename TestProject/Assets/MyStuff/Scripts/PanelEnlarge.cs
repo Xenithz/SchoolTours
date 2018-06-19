@@ -5,13 +5,16 @@ using UnityEngine;
 public class PanelEnlarge : MonoBehaviour 
 {
 	[SerializeField]
-	private GameObject LeftPanel;
+	private GameObject leftPanel;
 
 	[SerializeField]
-	private GameObject RightPanel;
+	private GameObject rightPanel;
 	
 	[SerializeField]
-	private GameObject MiddlePanel;
+	private GameObject middlePanel;
+
+	[SerializeField]
+	private GameObject[] uiElementsArray;
 
 
 	public void EnlargeThePanel()
@@ -19,17 +22,38 @@ public class PanelEnlarge : MonoBehaviour
 		if(this.gameObject.tag == "Left")
 		{
 			Debug.Log("left animation");
-			LeftPanel.GetComponent<Animator>().SetBool("Left", true);
+			for (int i = 0; i < uiElementsArray.Length; i++)
+			{
+				if(uiElementsArray[i] != leftPanel)
+				{
+					uiElementsArray[i].SetActive(false);
+				}
+			}
+			leftPanel.GetComponent<Animator>().SetBool("Left", true);
 		}
 		else if(this.gameObject.tag == "Right")
 		{
 			Debug.Log("right animation");
-			RightPanel.GetComponent<Animator>().SetBool("Right", true);
+			for (int i = 0; i < uiElementsArray.Length; i++)
+			{
+				if(uiElementsArray[i] != rightPanel)
+				{
+					uiElementsArray[i].SetActive(false);
+				}
+			}
+			rightPanel.GetComponent<Animator>().SetBool("Right", true);
 		}
 		else if(this.gameObject.tag == "Middle")
 		{
 			Debug.Log("middle animation");
-			MiddlePanel.GetComponent<Animator>().SetBool("Middle", true);
+			for (int i = 0; i < uiElementsArray.Length; i++)
+			{
+				if(uiElementsArray[i] != middlePanel)
+				{
+					uiElementsArray[i].SetActive(false);
+				}
+			}
+			middlePanel.GetComponent<Animator>().SetBool("Middle", true);
 		}
 	}
 }
