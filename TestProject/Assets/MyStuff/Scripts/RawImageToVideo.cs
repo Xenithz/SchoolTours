@@ -10,6 +10,9 @@ public class RawImageToVideo : MonoBehaviour
 	private RawImage myImage;
 
 	[SerializeField]
+	private GameObject myPlayButton;
+
+	[SerializeField]
 	private VideoClip myVideo;
 
 	[SerializeField]
@@ -21,6 +24,10 @@ public class RawImageToVideo : MonoBehaviour
 	[SerializeField]
 	private AudioSource myAudioSource;
 
+	[SerializeField]
+	private bool videoPaused = false;
+	private bool videoInitCheck = true;
+
 	private void Start()
 	{
 		Application.runInBackground = true;
@@ -29,6 +36,8 @@ public class RawImageToVideo : MonoBehaviour
 
 	IEnumerator StartVideo()
 	{
+		myPlayButton.SetActive(false);
+		videoInitCheck = false;
 		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
 		myAudioSource = gameObject.AddComponent<AudioSource>();
 

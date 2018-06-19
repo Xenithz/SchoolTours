@@ -22,7 +22,7 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
 
     protected TrackableBehaviour mTrackableBehaviour;
 
-    public Test myTest;
+    //public Test myTest;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -49,9 +49,7 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
     ///     Implementation of the ITrackableEventHandler function called when the
     ///     tracking state changes.
     /// </summary>
-    public void OnTrackableStateChanged(
-        TrackableBehaviour.Status previousStatus,
-        TrackableBehaviour.Status newStatus)
+    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus,TrackableBehaviour.Status newStatus)
     {
         if (newStatus == TrackableBehaviour.Status.DETECTED ||
             newStatus == TrackableBehaviour.Status.TRACKED ||
@@ -97,27 +95,27 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        if(gameObject.tag == "information")
-        {
-            Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-            for(int i = 0; i < myAnimatorContainer.Length; i++)
-            {
-                myAnimatorContainer[i].SetBool("SlideOut", true);
-            }
-        }
+        // if(gameObject.tag == "information")
+        // {
+        //     Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+        //     for(int i = 0; i < myAnimatorContainer.Length; i++)
+        //     {
+        //         myAnimatorContainer[i].SetBool("SlideOut", true);
+        //     }
+        // }
     }
 
 
     protected virtual void OnTrackingLost()
     {
-        if(gameObject.tag == "information")
+        if(gameObject.tag == "Food")
         {
-            myTest.myPanel.SetActive(false);
-            StopCoroutine(myTest.StartVideo());
+            // myTest.myPanel.SetActive(false);
+            // StopCoroutine(myTest.StartVideo());
             Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
             for(int i = 0; i < myAnimatorContainer.Length; i++)
             {
-                myAnimatorContainer[i].SetBool("SlideOut", false);
+                myAnimatorContainer[i].SetTrigger("FallDown");
             }
         }
         

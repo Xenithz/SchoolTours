@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - information
+  - Left
+  - Middle
+  - Right
+  - Food
   layers:
   - Default
   - TransparentFX
