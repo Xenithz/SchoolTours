@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: bfb74263f92b2438f83cce4ab6de6c71
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: APPLE
+    100002: //RootNode
+    100004: CHALKBOARD
+    100006: DESK
+    100008: GRAD CAP
+    100010: MUG
+    100012: THICK BOOK
+    100014: THIN BOOK
+    400000: APPLE
+    400002: //RootNode
+    400004: CHALKBOARD
+    400006: DESK
+    400008: GRAD CAP
+    400010: MUG
+    400012: THICK BOOK
+    400014: THIN BOOK
+    2100000: 'Material #6'
+    2100002: 'Material #9'
+    2100004: 'Material #20'
+    2100006: 'Material #19'
+    2100008: 'Material #12'
+    2100010: 'Material #15'
+    2100012: 'Material #16'
+    2100014: 'Material #14'
+    2100016: 'Material #8'
+    2100018: 'Material #3'
+    2100020: 'Material #4'
+    2100022: 'Material #13'
+    2100024: 'Material #23'
+    2100026: 'Material #7'
+    2100028: 'Material #17'
+    2100030: 'Material #10'
+    2100032: 'Material #18'
+    2100034: 'Material #21'
+    2100036: 'Material #22'
+    2300000: APPLE
+    2300002: CHALKBOARD
+    2300004: DESK
+    2300006: GRAD CAP
+    2300008: MUG
+    2300010: THICK BOOK
+    2300012: THIN BOOK
+    3300000: APPLE
+    3300002: CHALKBOARD
+    3300004: DESK
+    3300006: GRAD CAP
+    3300008: MUG
+    3300010: THICK BOOK
+    3300012: THIN BOOK
+    4300000: MUG
+    4300002: APPLE
+    4300004: THIN BOOK
+    4300006: THICK BOOK
+    4300008: GRAD CAP
+    4300010: CHALKBOARD
+    4300012: DESK
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
