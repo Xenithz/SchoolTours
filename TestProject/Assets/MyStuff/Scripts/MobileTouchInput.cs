@@ -60,6 +60,12 @@ public class MobileTouchInput : MonoBehaviour
 			case "Fees":
 				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[0]);
 				break;
+			case "PastAcademics":
+				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[1]);
+				break;
+			case "Applications":
+				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[2]);
+				break;
 			default:
 				break;
 		}

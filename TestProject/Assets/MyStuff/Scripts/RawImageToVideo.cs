@@ -6,8 +6,7 @@ using UnityEngine.Video;
 
 public class RawImageToVideo : MonoBehaviour 
 {
-	[SerializeField]
-	private RawImage myImage;
+	public RawImage myImage;
 
 	[SerializeField]
 	private GameObject myPlayButton;
@@ -15,8 +14,7 @@ public class RawImageToVideo : MonoBehaviour
 	[SerializeField]
 	private VideoClip myVideo;
 
-	[SerializeField]
-	private VideoPlayer myVideoPlayer;
+	public VideoPlayer myVideoPlayer;
 
 	[SerializeField]
 	private VideoSource myVideoSource;
@@ -26,12 +24,12 @@ public class RawImageToVideo : MonoBehaviour
 
 	[SerializeField]
 	private bool videoPaused = false;
-	private bool videoInitCheck = true;
+	public bool videoInitCheck = true;
 
 	private void Start()
 	{
-		Application.runInBackground = true;
-		StartCoroutine(StartVideo());
+		// Application.runInBackground = true;
+		// StartCoroutine(StartVideo());
 	}
 
 	IEnumerator StartVideo()
@@ -71,5 +69,32 @@ public class RawImageToVideo : MonoBehaviour
 			Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)myVideoPlayer.time));
 			yield return null;
 		}
+	}
+
+	public void PlayAndPause()
+	{
+		if(!videoInitCheck && !videoPaused)
+		{
+			myVideoPlayer.Pause();
+			myAudioSource.Pause();
+			myPlayButton.SetActive(true);
+			videoPaused = true;
+		}
+		else if(!videoInitCheck && videoPaused)
+		{
+			myVideoPlayer.Play();
+			myAudioSource.Play();
+			myPlayButton.SetActive(false);
+			videoPaused = false;
+		}
+		else
+		{
+			StartCoroutine(StartVideo());
+		}
+	}
+
+	public void ReAssignTexture()
+	{
+		myImage.texture = myVideoPlayer.texture;
 	}
 }
