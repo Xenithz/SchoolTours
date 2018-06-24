@@ -9,6 +9,8 @@ TagManager:
   - Right
   - Food
   - Test
+  - VirtualButton
+  - Class
   layers:
   - Default
   - TransparentFX

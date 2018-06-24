@@ -6,8 +6,12 @@ public class MobileTouchInput : MonoBehaviour
 {
 	private RaycastHit hit;
 
+	[SerializeField]
+	private CanvasManager myCanvasManager;
+
 	private void Update()
 	{
+		ProcessInput();
 	}
 
 	private void ProcessInput()
@@ -21,18 +25,40 @@ public class MobileTouchInput : MonoBehaviour
 
 				if(Physics.Raycast(myRay, out hit))
 				{
-					Execute(hit);
+					if(hit.transform.gameObject.tag == "VirtualButton")
+					{
+						Execute(hit);
+					}
 				}
 			}
+		}
+
+		if(Input.GetMouseButtonDown(0))
+		{
+			Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				if(Physics.Raycast(myRay, out hit))
+				{
+					Debug.Log("Hit something");
+					if(hit.transform.gameObject.tag == "VirtualButton")
+					{
+						Debug.Log("Hit button");
+						Debug.Log(hit.transform.gameObject.name);
+						Execute(hit);
+					}
+				}
 		}
 	}
 
 	private void Execute(RaycastHit hitToCheck)
 	{
-		switch (hitToCheck.transform.gameObject.tag)
+		switch (hitToCheck.transform.gameObject.name)
 		{
 			case "Test":
-				Debug.Log("Hit");
+				Debug.Log("Ding");
+				break;
+			case "Fees":
+				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[0]);
 				break;
 			default:
 				break;

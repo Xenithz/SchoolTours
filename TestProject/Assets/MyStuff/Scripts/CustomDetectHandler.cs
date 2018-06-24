@@ -22,9 +22,10 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
 
     protected TrackableBehaviour mTrackableBehaviour;
 
-    //public Test myTest;
-
     #endregion // PROTECTED_MEMBER_VARIABLES
+
+    [SerializeField]
+    private CanvasManager myCanvasManager;
 
     #region UNITY_MONOBEHAVIOUR_METHODS
 
@@ -85,7 +86,17 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
 
         // Enable rendering:
         foreach (var component in rendererComponents)
-            component.enabled = true;
+        {
+            //component.enabled = true;
+            if(component.gameObject.tag == "VirtualButton")
+            {
+                component.enabled = false;
+            }
+            else
+            {
+                component.enabled = true;
+            }
+        }
 
         // Enable colliders:
         foreach (var component in colliderComponents)
@@ -94,6 +105,15 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+
+        if(gameObject.tag == "Class")
+        {
+            Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+            for(int i = 0; i < myAnimatorContainer.Length; i++)
+            {
+                myAnimatorContainer[i].SetBool("shouldPlay", true);
+            }
+        }
 
         // if(gameObject.tag == "information")
         // {
@@ -108,16 +128,6 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
 
     protected virtual void OnTrackingLost()
     {
-        if(gameObject.tag == "Food")
-        {
-            // myTest.myPanel.SetActive(false);
-            // StopCoroutine(myTest.StartVideo());
-            Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-            for(int i = 0; i < myAnimatorContainer.Length; i++)
-            {
-                myAnimatorContainer[i].SetTrigger("FallDown");
-            }
-        }
         
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -134,6 +144,17 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
+        if(gameObject.tag == "class")
+        {
+            Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+            for(int i = 0; i < myAnimatorContainer.Length; i++)
+            {
+                myAnimatorContainer[i].SetBool("shouldPlay", false);
+            }
+        }
+
+        myCanvasManager.CloseCurrentCanvas();
     }
 
     #endregion // PROTECTED_METHODS
