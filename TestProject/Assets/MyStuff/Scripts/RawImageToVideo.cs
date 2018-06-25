@@ -34,7 +34,8 @@ public class RawImageToVideo : MonoBehaviour
 
 	IEnumerator StartVideo()
 	{
-		myPlayButton.SetActive(false);
+		//myPlayButton.SetActive(false);
+		myPlayButton.GetComponent<Image>().enabled = false;
 		videoInitCheck = false;
 		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
 		myAudioSource = gameObject.AddComponent<AudioSource>();
@@ -77,14 +78,14 @@ public class RawImageToVideo : MonoBehaviour
 		{
 			myVideoPlayer.Pause();
 			myAudioSource.Pause();
-			myPlayButton.SetActive(true);
+			myPlayButton.GetComponent<Image>().enabled = true;
 			videoPaused = true;
 		}
 		else if(!videoInitCheck && videoPaused)
 		{
 			myVideoPlayer.Play();
 			myAudioSource.Play();
-			myPlayButton.SetActive(false);
+			myPlayButton.GetComponent<Image>().enabled = false;
 			videoPaused = false;
 		}
 		else

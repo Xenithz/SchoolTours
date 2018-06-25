@@ -106,7 +106,7 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        if(gameObject.tag == "Class")
+        if(gameObject.tag == "Animated")
         {
             Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
             for(int i = 0; i < myAnimatorContainer.Length; i++)
@@ -145,7 +145,7 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-        if(gameObject.tag == "class")
+        if(gameObject.tag == "Animated")
         {
             Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
             for(int i = 0; i < myAnimatorContainer.Length; i++)

@@ -30,6 +30,9 @@ public class CanvasManager : MonoBehaviour
 		0 = Fees
 		1 = PastAcademics
 		2 = Applications
+		3 = Lab
+		4 = Teacher
+		5 = Curriculum
 	 */
 
 	private void Start()

@@ -21,8 +21,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected TrackableBehaviour mTrackableBehaviour;
 
-    public Test myTest;
-
     #endregion // PROTECTED_MEMBER_VARIABLES
 
     #region UNITY_MONOBEHAVIOUR_METHODS
@@ -99,10 +97,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
 
     protected virtual void OnTrackingLost()
-    {
-        myTest.myPanel.SetActive(false);
-        StopCoroutine(myTest.StartVideo());
-        
+    {   
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);

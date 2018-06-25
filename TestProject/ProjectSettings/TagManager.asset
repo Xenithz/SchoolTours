@@ -10,7 +10,7 @@ TagManager:
   - Food
   - Test
   - VirtualButton
-  - Class
+  - Animated
   layers:
   - Default
   - TransparentFX
