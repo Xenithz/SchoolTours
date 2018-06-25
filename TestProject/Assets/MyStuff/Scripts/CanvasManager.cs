@@ -64,27 +64,28 @@ public class CanvasManager : MonoBehaviour
 		currentCanvas = null;
 	}
 
-	public void CloseCurrentVideoCanvas()
-	{	
-		for(int i = 0; i < videoButtonArray.Length; i++)
-		{
-			videoButtonArray[i].SetActive(true);
-		}
+	//UNUSED
+	// public void CloseCurrentVideoCanvas()
+	// {	
+	// 	for(int i = 0; i < videoButtonArray.Length; i++)
+	// 	{
+	// 		videoButtonArray[i].SetActive(true);
+	// 	}
 
-		for(int i = 0; i < buttonArray.Length; i++)
-		{
-			buttonArray[i].SetActive(true);
-		}
+	// 	for(int i = 0; i < buttonArray.Length; i++)
+	// 	{
+	// 		buttonArray[i].SetActive(true);
+	// 	}
 
-		var videoHolder = GetComponents<RawImageToVideo>();
+	// 	var videoHolder = GetComponents<RawImageToVideo>();
 		
-		for(int i  = 0; i < videoHolder.Length; i++)
-		{
-			videoHolder[i].GetComponent<VideoPlayer>().Stop();
-			videoHolder[i].videoInitCheck = true;
-		}
+	// 	for(int i  = 0; i < videoHolder.Length; i++)
+	// 	{
+	// 		videoHolder[i].GetComponent<VideoPlayer>().Stop();
+	// 		videoHolder[i].videoInitCheck = true;
+	// 	}
 
-		currentCanvas.SetActive(false);
-		currentCanvas = null;
-	}
+	// 	currentCanvas.SetActive(false);
+	// 	currentCanvas = null;
+	// }
 }

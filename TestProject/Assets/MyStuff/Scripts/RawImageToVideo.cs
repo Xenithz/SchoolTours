@@ -28,17 +28,25 @@ public class RawImageToVideo : MonoBehaviour
 
 	private void Start()
 	{
-		// Application.runInBackground = true;
-		// StartCoroutine(StartVideo());
+		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
+		myAudioSource = gameObject.AddComponent<AudioSource>();
+	}
+
+	private void OnEnable()
+	{
+		myPlayButton.GetComponent<Image>().enabled = true;
+	}
+
+	private void OnDisable()
+	{
+		myVideoPlayer.Stop();
+		videoInitCheck = true;
 	}
 
 	IEnumerator StartVideo()
 	{
-		//myPlayButton.SetActive(false);
 		myPlayButton.GetComponent<Image>().enabled = false;
 		videoInitCheck = false;
-		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
-		myAudioSource = gameObject.AddComponent<AudioSource>();
 
 		myVideoPlayer.playOnAwake = false;
 		myAudioSource.playOnAwake = false;
@@ -65,23 +73,23 @@ public class RawImageToVideo : MonoBehaviour
 
 		myAudioSource.Play();
 
-		while(myVideoPlayer.isPlaying == true)
+		if(myVideoPlayer.isPlaying != true)
 		{
-			Debug.LogWarning("Video Time: " + Mathf.FloorToInt((float)myVideoPlayer.time));
+			myPlayButton.GetComponent<Image>().enabled = true;
 			yield return null;
 		}
 	}
 
 	public void PlayAndPause()
 	{
-		if(!videoInitCheck && !videoPaused)
+		if(!videoInitCheck && !videoPaused && myVideoPlayer.isPlaying)
 		{
 			myVideoPlayer.Pause();
 			myAudioSource.Pause();
 			myPlayButton.GetComponent<Image>().enabled = true;
 			videoPaused = true;
 		}
-		else if(!videoInitCheck && videoPaused)
+		else if(!videoInitCheck && videoPaused && !myVideoPlayer.isPlaying)
 		{
 			myVideoPlayer.Play();
 			myAudioSource.Play();
@@ -92,10 +100,5 @@ public class RawImageToVideo : MonoBehaviour
 		{
 			StartCoroutine(StartVideo());
 		}
-	}
-
-	public void ReAssignTexture()
-	{
-		myImage.texture = myVideoPlayer.texture;
 	}
 }

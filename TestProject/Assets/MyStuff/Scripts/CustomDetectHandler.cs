@@ -109,20 +109,12 @@ public class CustomDetectHandler : MonoBehaviour, ITrackableEventHandler
         if(gameObject.tag == "Animated")
         {
             Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+            Debug.Log(myAnimatorContainer.Length);
             for(int i = 0; i < myAnimatorContainer.Length; i++)
             {
                 myAnimatorContainer[i].SetBool("shouldPlay", true);
             }
         }
-
-        // if(gameObject.tag == "information")
-        // {
-        //     Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-        //     for(int i = 0; i < myAnimatorContainer.Length; i++)
-        //     {
-        //         myAnimatorContainer[i].SetBool("SlideOut", true);
-        //     }
-        // }
     }
 
 
