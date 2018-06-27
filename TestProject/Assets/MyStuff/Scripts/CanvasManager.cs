@@ -27,6 +27,10 @@ public class CanvasManager : MonoBehaviour
 	[SerializeField]
 	public Dictionary<string, GameObject> canvasDictionary;
 
+	public Sprite playSprite;
+
+	public Sprite resumeSprite;
+
 	private void Start()
 	{
 		buttonArray = GameObject.FindGameObjectsWithTag("VirtualButton");

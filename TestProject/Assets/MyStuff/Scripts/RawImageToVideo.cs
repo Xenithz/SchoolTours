@@ -6,6 +6,8 @@ using UnityEngine.Video;
 
 public class RawImageToVideo : MonoBehaviour 
 {
+	public Sprite continueSprite;
+	public Sprite playSprite;
 	public RawImage myImage;
 
 	[SerializeField]
@@ -26,10 +28,15 @@ public class RawImageToVideo : MonoBehaviour
 	private bool videoPaused = false;
 	public bool videoInitCheck = true;
 
+	public CanvasManager myCanvasManager;
+
 	private void Start()
 	{
 		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
 		myAudioSource = gameObject.AddComponent<AudioSource>();
+		myCanvasManager = GameObject.Find("Holder").GetComponent<CanvasManager>();
+		playSprite = myCanvasManager.playSprite;
+		continueSprite = myCanvasManager.resumeSprite;
 	}
 
 	private void OnEnable()
@@ -87,6 +94,7 @@ public class RawImageToVideo : MonoBehaviour
 			myVideoPlayer.Pause();
 			myAudioSource.Pause();
 			myPlayButton.GetComponent<Image>().enabled = true;
+			myPlayButton.GetComponent<Image>().sprite = continueSprite;
 			videoPaused = true;
 		}
 		else if(!videoInitCheck && videoPaused && !myVideoPlayer.isPlaying)
@@ -94,6 +102,7 @@ public class RawImageToVideo : MonoBehaviour
 			myVideoPlayer.Play();
 			myAudioSource.Play();
 			myPlayButton.GetComponent<Image>().enabled = false;
+			myPlayButton.GetComponent<Image>().sprite = playSprite;
 			videoPaused = false;
 		}
 		else
