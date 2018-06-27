@@ -6,8 +6,6 @@ using UnityEngine.Video;
 
 public class CanvasManager : MonoBehaviour 
 {
-	//TODO: Make it use animation instead of just setting gameobject as inactive
-
 	public GameObject CurrentCanvas
 	{
 		get
@@ -17,28 +15,30 @@ public class CanvasManager : MonoBehaviour
 	}
 
 	[SerializeField]
-	private GameObject currentCanvas;
+	private GameObject currentCanvas = null;
 
 	[SerializeField]
 	private GameObject[] buttonArray;
 
-	[SerializeField]
-	private GameObject[] videoButtonArray;
+	public GameObject mainCanvas;
 
-	public GameObject[] canvasArray;
-	/*
-		0 = Fees
-		1 = PastAcademics
-		2 = Applications
-		3 = Lab
-		4 = Teacher
-		5 = Curriculum
-	 */
+	 public Mask[] panelsToAdd;
+
+	[SerializeField]
+	public Dictionary<string, GameObject> canvasDictionary;
 
 	private void Start()
 	{
-		currentCanvas = null;
 		buttonArray = GameObject.FindGameObjectsWithTag("VirtualButton");
+		canvasDictionary = new Dictionary<string, GameObject>();
+		panelsToAdd = mainCanvas.GetComponentsInChildren<Mask>(true);
+		for(int i = 0; i < panelsToAdd.Length; i++)
+		{
+			GameObject myGameObjectToAdd = panelsToAdd[i].gameObject;
+			Debug.Log(myGameObjectToAdd.name);
+			canvasDictionary.Add(myGameObjectToAdd.name, myGameObjectToAdd);
+			Debug.Log(canvasDictionary.Count);
+		}
 	}
 
 	public void SetCurrentCanvas(GameObject canvasToSet)
@@ -63,29 +63,4 @@ public class CanvasManager : MonoBehaviour
 		currentCanvas.SetActive(false);
 		currentCanvas = null;
 	}
-
-	//UNUSED
-	// public void CloseCurrentVideoCanvas()
-	// {	
-	// 	for(int i = 0; i < videoButtonArray.Length; i++)
-	// 	{
-	// 		videoButtonArray[i].SetActive(true);
-	// 	}
-
-	// 	for(int i = 0; i < buttonArray.Length; i++)
-	// 	{
-	// 		buttonArray[i].SetActive(true);
-	// 	}
-
-	// 	var videoHolder = GetComponents<RawImageToVideo>();
-		
-	// 	for(int i  = 0; i < videoHolder.Length; i++)
-	// 	{
-	// 		videoHolder[i].GetComponent<VideoPlayer>().Stop();
-	// 		videoHolder[i].videoInitCheck = true;
-	// 	}
-
-	// 	currentCanvas.SetActive(false);
-	// 	currentCanvas = null;
-	// }
 }

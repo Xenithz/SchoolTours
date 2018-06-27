@@ -52,31 +52,9 @@ public class MobileTouchInput : MonoBehaviour
 
 	private void Execute(RaycastHit hitToCheck)
 	{
-		switch (hitToCheck.transform.gameObject.name)
+		if(myCanvasManager.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
 		{
-			case "Test":
-				Debug.Log("Ding");
-				break;
-			case "Fees":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[0]);
-				break;
-			case "PastAcademics":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[1]);
-				break;
-			case "Applications":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[2]);
-				break;
-			case "Lab":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[3]);
-				break;
-			case "Teacher":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[4]);
-				break;
-			case "Curriculum":
-				myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasArray[5]);
-				break;
-			default:
-				break;
+			myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasDictionary[hitToCheck.transform.gameObject.name]);
 		}
 	}
 }
