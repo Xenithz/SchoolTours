@@ -9,11 +9,14 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     [SerializeField]
     private TrackingManager myTrackingManager;
 
+    private VuMarkManager myVumarkManager;
+
     private bool testingMode;
 
     protected override void Start()
     {
         testingMode = false;
+        myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
         myCanvasManager = GameObject.Find("Holder").GetComponent<CanvasManager>();
         myTrackingManager = GameObject.Find("Holder").GetComponent<TrackingManager>();
 
@@ -59,7 +62,10 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
         else
         {
             base.OnTrackingFound();
+            
             var rendererComponents = GetComponentsInChildren<Renderer>(true);
+
+            
 
             // Enable rendering:
             foreach (var component in rendererComponents)

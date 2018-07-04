@@ -6,6 +6,8 @@ public class TriggerMyAnimation : MonoBehaviour
 {
 	public Animator myAnimationController;
 
+	public Animator mySecondAnimationController;
+
 	private bool shouldTime;
 
 	public float myCurrentTime;
@@ -37,6 +39,7 @@ public class TriggerMyAnimation : MonoBehaviour
 		if(myCurrentTime >= targetTime)
 		{
 			myAnimationController.SetBool("shouldGo", true);
+			mySecondAnimationController.SetBool("shouldGo", true);
 		}
 	}
 }

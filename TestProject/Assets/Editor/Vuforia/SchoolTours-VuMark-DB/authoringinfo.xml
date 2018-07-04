@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <VuforiaUnityInfo>
-    <TargetSet toolVersion="" version="6.0"><VuMark name="myVumark" previewImage="3bf06fafc0b749508adb2ebaf6f0f320_scaled.png" targetId="3bf06fafc0b749508adb2ebaf6f0f320" version="9.0">
-            <Shape bbox2D="0 0 606.157 554.711" origin="302.726 276.837" />
+    <TargetSet toolVersion="" version="6.0"><VuMark name="blankborder" previewImage="db2b6f43cf424e40a39f8c57858d8484_scaled.png" targetId="db2b6f43cf424e40a39f8c57858d8484" version="9.0">
+            <Shape bbox2D="0 0 610.931 573.888" origin="304.944 285.667" />
             <Code IDlength="4" IDtype="string" />
         </VuMark>
     </TargetSet>
