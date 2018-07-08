@@ -2,72 +2,65 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class TrackingManager : MonoBehaviour 
 {
-	public Dictionary<GameObject, float> myTrackingDictionary;
+	public GameObject receptionObject;
+	public string receptionID = "4321";
 
-	public bool keepOnScreen;
+	public GameObject blankObject;
+	public string blankID = "1234";
 
-	public GameObject myCamera;
+	public GameObject beakerObject;
+	public string beakerID = "1222";
 
-	public GameObject mainTrackingToConsider;
+	public GameObject trayObject;
+	public string trayID = "1333";
 
-	public Transform oldTransformToConsider;
+	public GameObject boyObject;
+	public string boyID = "1444";
 
-	private void Start()
+	public void EnableObjects(GameObject gameObjectToPass, GameObject animatedVumark)
 	{
-		myTrackingDictionary = new Dictionary<GameObject, float>();
-		myCamera = GameObject.Find("ARCamera");
-		keepOnScreen = true;
-	}
-	
-	private void Update()
-	{
-		ProcessDistance();
-		mainTrackingToConsider = UpdateMainTracking();
-
-		if(!CheckIfRender() && myTrackingDictionary[mainTrackingToConsider] < 10f)
+		var rendererComponents = gameObjectToPass.GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = gameObjectToPass.GetComponentsInChildren<Collider>(true);
+        var canvasComponents = gameObjectToPass.GetComponentsInChildren<Canvas>(true);
+                
+        foreach(var component in rendererComponents)
 		{
-			//Keep rendering object.
+			component.shadowCastingMode = ShadowCastingMode.Off;
+			component.enabled = true;
+		}		
 
-		}
-	}
+        foreach(var component in colliderComponents)
+            component.enabled = true;
 
-	private void ProcessDistance()
-	{
-		if(myTrackingDictionary.Count != 0)
-		{
-			List<GameObject> keyList = new List<GameObject>(myTrackingDictionary.Keys);
-			foreach(var item in keyList)
-			{
-				GameObject temporaryGameObject = item;
-				Vector3 temporaryVector3 = myCamera.transform.position - temporaryGameObject.transform.position;
-				float temporaryFloat = temporaryVector3.magnitude;
-				myTrackingDictionary[item] = temporaryFloat;
-				//Debug.Log(item.name + " " + myTrackingDictionary[item]);
-			}
-		}
-	}
+        foreach(var component in canvasComponents)
+            component.enabled = true;
 
-	private GameObject UpdateMainTracking()
-	{
-		GameObject max = myTrackingDictionary.First().Key;
-		List<GameObject> keyList = new List<GameObject>(myTrackingDictionary.Keys);
-		for(int i = 1; i < keyList.Count; i++)
-		{
-			if(myTrackingDictionary[keyList[i]] < myTrackingDictionary[max])
-			{
-				max = keyList[i];
-			}
-		}
-		oldTransformToConsider = max.transform;
-		return max;
-	}
 
-	private bool CheckIfRender()
-	{
-		Renderer myRenderer = mainTrackingToConsider.GetComponent<Renderer>();
-		return myRenderer.isVisible;
+        foreach (var component in rendererComponents)
+        {
+            //component.enabled = true;
+            if(component.gameObject.tag == "VirtualButton")
+            {
+                component.enabled = false;
+            }
+            else
+            {
+                component.enabled = true;
+            }
+        }
+
+        if(animatedVumark.tag == "Animated")
+        {
+            Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
+            //Debug.Log(myAnimatorContainer.Length);
+            for(int i = 0; i < myAnimatorContainer.Length; i++)
+            {
+                myAnimatorContainer[i].SetBool("shouldPlay", true);
+            }
+        }   
 	}
 }

@@ -11,6 +11,8 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
     private VuMarkManager myVumarkManager;
 
+    private VuMarkTarget myVumark;
+
     private bool testingMode;
 
     protected override void Start()
@@ -29,13 +31,9 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     {
         if(testingMode)
         {
-            base.OnTrackingFound();
-            Vector3 storageVector = myTrackingManager.myCamera.transform.position - gameObject.transform.position;
-            float distanceToPass = storageVector.magnitude;
-            myTrackingManager.myTrackingDictionary.Add(gameObject, distanceToPass);
             var rendererComponents = GetComponentsInChildren<Renderer>(true);
 
-            // Enable rendering:
+            base.OnTrackingFound();
             foreach (var component in rendererComponents)
             {
                 //component.enabled = true;
@@ -57,38 +55,38 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                 {
                     myAnimatorContainer[i].SetBool("shouldPlay", true);
                 }
-            }
+            }   
         }
         else
         {
-            base.OnTrackingFound();
-            
-            var rendererComponents = GetComponentsInChildren<Renderer>(true);
+            //base.OnTrackingFound();
+            myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
 
-            
+            Debug.Log("Current VuMark ID: " + " " + myVumark.InstanceId.StringValue);
 
-            // Enable rendering:
-            foreach (var component in rendererComponents)
+            if(myVumark.InstanceId.StringValue == myTrackingManager.receptionID)
             {
-                //component.enabled = true;
-                if(component.gameObject.tag == "VirtualButton")
-                {
-                    component.enabled = false;
-                }
-                else
-                {
-                    component.enabled = true;
-                }
+                myTrackingManager.EnableObjects(myTrackingManager.receptionObject, gameObject);
             }
 
-            if(gameObject.tag == "Animated")
+            else if(myVumark.InstanceId.StringValue == myTrackingManager.blankID)
             {
-                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-                Debug.Log(myAnimatorContainer.Length);
-                for(int i = 0; i < myAnimatorContainer.Length; i++)
-                {
-                    myAnimatorContainer[i].SetBool("shouldPlay", true);
-                }
+                myTrackingManager.EnableObjects(myTrackingManager.blankObject, gameObject);
+            }
+
+            else if(myVumark.InstanceId.StringValue == myTrackingManager.beakerID)
+            {
+                myTrackingManager.EnableObjects(myTrackingManager.beakerObject, gameObject);
+            }
+
+            else if(myVumark.InstanceId.StringValue == myTrackingManager.trayID)
+            {
+                myTrackingManager.EnableObjects(myTrackingManager.trayObject, gameObject);
+            }
+
+            else if(myVumark.InstanceId.StringValue == myTrackingManager.boyID)
+            {
+                myTrackingManager.EnableObjects(myTrackingManager.boyObject, gameObject);
             }
         }
     }
@@ -97,37 +95,18 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     {
         if(testingMode)
         {
-            // if(myTrackingManager.keepOnScreen == false)
-            // {
-            //     base.OnTrackingLost();
-            //     myTrackingManager.myTrackingDictionary.Remove(gameObject);
-            //     if(gameObject.tag == "Animated")
-            //     {
-            //         Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-            //         for(int i = 0; i < myAnimatorContainer.Length; i++)
-            //         {
-            //             myAnimatorContainer[i].SetBool("shouldPlay", false);
-            //         }
-            //     }
 
-            //     myCanvasManager.CloseCurrentCanvas();
-            // }
-            // else
-            // {
-            //     //KEEP EVERYTHING ON SCREEN
-            // }
-
-            gameObject.transform.position = myTrackingManager.myCamera.transform.position + myTrackingManager.myCamera.transform.forward * 10f;
-            gameObject.transform.SetParent(myTrackingManager.myCamera.transform);
         }
         else
         {
             base.OnTrackingLost();
+            Debug.Log("get lost");
             if(gameObject.tag == "Animated")
             {
                 Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
                 for(int i = 0; i < myAnimatorContainer.Length; i++)
                 {
+                    //Debug.Log(i);
                     myAnimatorContainer[i].SetBool("shouldPlay", false);
                 }
             }

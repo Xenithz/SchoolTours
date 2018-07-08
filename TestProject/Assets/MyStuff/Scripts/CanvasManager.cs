@@ -39,10 +39,9 @@ public class CanvasManager : MonoBehaviour
 		for(int i = 0; i < panelsToAdd.Length; i++)
 		{
 			GameObject myGameObjectToAdd = panelsToAdd[i].gameObject;
-			Debug.Log(myGameObjectToAdd.name);
 			canvasDictionary.Add(myGameObjectToAdd.name, myGameObjectToAdd);
-			Debug.Log(canvasDictionary.Count);
 		}
+		
 	}
 
 	public void SetCurrentCanvas(GameObject canvasToSet)
