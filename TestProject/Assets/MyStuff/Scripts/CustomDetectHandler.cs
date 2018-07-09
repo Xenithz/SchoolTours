@@ -17,7 +17,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
     protected override void Start()
     {
-        testingMode = false;
+        testingMode = true;
         myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
         myCanvasManager = GameObject.Find("Holder").GetComponent<CanvasManager>();
         myTrackingManager = GameObject.Find("Holder").GetComponent<TrackingManager>();
