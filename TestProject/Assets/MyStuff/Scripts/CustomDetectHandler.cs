@@ -4,11 +4,6 @@ using Vuforia;
 
 public class CustomDetectHandler : DefaultTrackableEventHandler
 {
-    [SerializeField]
-	private CanvasManager myCanvasManager;
-    [SerializeField]
-    private TrackingManager myTrackingManager;
-
     private VuMarkManager myVumarkManager;
 
     private VuMarkTarget myVumark;
@@ -19,8 +14,6 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     {
         testingMode = true;
         myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
-        myCanvasManager = GameObject.Find("Holder").GetComponent<CanvasManager>();
-        myTrackingManager = GameObject.Find("Holder").GetComponent<TrackingManager>();
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
@@ -64,29 +57,29 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
             Debug.Log("Current VuMark ID: " + " " + myVumark.InstanceId.StringValue);
 
-            if(myVumark.InstanceId.StringValue == myTrackingManager.receptionID)
+            if(myVumark.InstanceId.StringValue == TrackingManager.instance.receptionID)
             {
-                myTrackingManager.EnableObjects(myTrackingManager.receptionObject, gameObject);
+                TrackingManager.instance.EnableObjects(TrackingManager.instance.receptionObject, gameObject);
             }
 
-            else if(myVumark.InstanceId.StringValue == myTrackingManager.blankID)
+            else if(myVumark.InstanceId.StringValue == TrackingManager.instance.blankID)
             {
-                myTrackingManager.EnableObjects(myTrackingManager.blankObject, gameObject);
+                TrackingManager.instance.EnableObjects(TrackingManager.instance.blankObject, gameObject);
             }
 
-            else if(myVumark.InstanceId.StringValue == myTrackingManager.beakerID)
+            else if(myVumark.InstanceId.StringValue == TrackingManager.instance.beakerID)
             {
-                myTrackingManager.EnableObjects(myTrackingManager.beakerObject, gameObject);
+                TrackingManager.instance.EnableObjects(TrackingManager.instance.beakerObject, gameObject);
             }
 
-            else if(myVumark.InstanceId.StringValue == myTrackingManager.trayID)
+            else if(myVumark.InstanceId.StringValue == TrackingManager.instance.trayID)
             {
-                myTrackingManager.EnableObjects(myTrackingManager.trayObject, gameObject);
+                TrackingManager.instance.EnableObjects(TrackingManager.instance.trayObject, gameObject);
             }
 
-            else if(myVumark.InstanceId.StringValue == myTrackingManager.boyID)
+            else if(myVumark.InstanceId.StringValue == TrackingManager.instance.boyID)
             {
-                myTrackingManager.EnableObjects(myTrackingManager.boyObject, gameObject);
+                TrackingManager.instance.EnableObjects(TrackingManager.instance.boyObject, gameObject);
             }
         }
     }
@@ -95,7 +88,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     {
         if(testingMode)
         {
-
+            base.OnTrackingLost();
         }
         else
         {
@@ -110,8 +103,6 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                     myAnimatorContainer[i].SetBool("shouldPlay", false);
                 }
             }
-
-            myCanvasManager.CloseCurrentCanvas();
         }
     }
 }

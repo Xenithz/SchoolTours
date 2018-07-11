@@ -31,8 +31,11 @@ public class CanvasManager : MonoBehaviour
 
 	public Sprite resumeSprite;
 
+	static public CanvasManager instance;
+
 	private void Start()
 	{
+		instance = this;
 		buttonArray = GameObject.FindGameObjectsWithTag("VirtualButton");
 		canvasDictionary = new Dictionary<string, GameObject>();
 		panelsToAdd = mainCanvas.GetComponentsInChildren<Mask>(true);

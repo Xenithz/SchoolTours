@@ -6,9 +6,6 @@ public class MobileTouchInput : MonoBehaviour
 {
 	private RaycastHit hit;
 
-	[SerializeField]
-	private CanvasManager myCanvasManager;
-
 	private void Update()
 	{
 		ProcessInput();
@@ -52,9 +49,9 @@ public class MobileTouchInput : MonoBehaviour
 
 	private void Execute(RaycastHit hitToCheck)
 	{
-		if(myCanvasManager.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
+		if(CanvasManager.instance.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
 		{
-			myCanvasManager.SetCurrentCanvas(myCanvasManager.canvasDictionary[hitToCheck.transform.gameObject.name]);
+			CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[hitToCheck.transform.gameObject.name]);
 		}
 	}
 }

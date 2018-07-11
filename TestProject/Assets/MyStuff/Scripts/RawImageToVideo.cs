@@ -28,15 +28,12 @@ public class RawImageToVideo : MonoBehaviour
 	private bool videoPaused = false;
 	public bool videoInitCheck = true;
 
-	public CanvasManager myCanvasManager;
-
 	private void Start()
 	{
 		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
 		myAudioSource = gameObject.AddComponent<AudioSource>();
-		myCanvasManager = GameObject.Find("Holder").GetComponent<CanvasManager>();
-		playSprite = myCanvasManager.playSprite;
-		continueSprite = myCanvasManager.resumeSprite;
+		playSprite = CanvasManager.instance.playSprite;
+		continueSprite = CanvasManager.instance.resumeSprite;
 	}
 
 	private void OnEnable()

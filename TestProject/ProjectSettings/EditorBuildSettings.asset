@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/MyStuff/Scenes/Menu.unity
     guid: c557533f7eaf04ac284f29add72e8c34
-  - enabled: 1
+  - enabled: 0
     path: Assets/MyStuff/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Assets/MyStuff/Scenes/TouchTest.unity
     guid: 8115d43187aa54423993ed77f659c726
+  - enabled: 1
+    path: Assets/MyStuff/Scenes/TestLag.unity
+    guid: 77b5b2c2e380645c6a2aac2397b2439a
   m_configObjects: {}

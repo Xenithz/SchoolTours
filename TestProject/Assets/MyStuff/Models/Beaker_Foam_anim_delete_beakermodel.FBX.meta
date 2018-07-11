@@ -12,7 +12,9 @@ ModelImporter:
     2100000: 'Material #7'
     2100002: 'Material #13'
     2300000: Beaker
+    2300002: Group12113
     3300000: Beaker
+    3300002: Group12113
     4300000: Beaker
     4300002: Group12113
     7400000: Take 001
@@ -53,7 +55,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 1
     importLights: 1
     swapUVChannels: 0

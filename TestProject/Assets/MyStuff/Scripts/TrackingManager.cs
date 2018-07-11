@@ -21,6 +21,13 @@ public class TrackingManager : MonoBehaviour
 	public GameObject boyObject;
 	public string boyID = "1444";
 
+    static public TrackingManager instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
+
 	public void EnableObjects(GameObject gameObjectToPass, GameObject animatedVumark)
 	{
 		var rendererComponents = gameObjectToPass.GetComponentsInChildren<Renderer>(true);
