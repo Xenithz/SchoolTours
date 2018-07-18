@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4428484, g: 0.49201047, b: 0.571774, a: 1}
+  m_IndirectSpecularColor: {r: 0.44284892, g: 0.49201095, b: 0.5717745, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12438,7 +12438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &772338991
 Transform:
   m_ObjectHideFlags: 0
@@ -20254,11 +20254,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 4638c9fb6fa294876a5abc0d6b408ff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.697
+      value: -0.077
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 4638c9fb6fa294876a5abc0d6b408ff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.15010023
+      value: -0.042
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 4638c9fb6fa294876a5abc0d6b408ff0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -20672,7 +20672,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/SchoolTours-VuMark-DB.xml
-  mExtendedTracking: 0
   mAspectRatio: 0.93936634
   mWidth: 1
   mHeight: 0.93936634
@@ -26969,7 +26968,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AR-Application.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 1
@@ -27367,7 +27365,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AR-Application.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 1
@@ -27496,7 +27493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2125388223
 Transform:
   m_ObjectHideFlags: 0
