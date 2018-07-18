@@ -11,6 +11,8 @@ TagManager:
   - Test
   - VirtualButton
   - Animated
+  - Fire
+  - SpecAnimated
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
     protected override void Start()
     {
-        testingMode = true;
+        testingMode = false;
         myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -40,7 +40,16 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                 }
             }
 
-            if(gameObject.tag == "Animated")
+            if(gameObject.tag == "SpecAnimated")
+            {
+                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+                Debug.Log(myAnimatorContainer.Length);
+                for(int i = 0; i < myAnimatorContainer.Length; i++)
+                {
+                    myAnimatorContainer[i].SetBool("shouldMove", true);
+                }
+            }   
+            else if(gameObject.tag == "Animated")
             {
                 Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
                 Debug.Log(myAnimatorContainer.Length);
@@ -89,6 +98,25 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
         if(testingMode)
         {
             base.OnTrackingLost();
+            if(gameObject.tag == "Animated")
+            {
+                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+                for(int i = 0; i < myAnimatorContainer.Length; i++)
+                {
+                    //Debug.Log(i);
+                    myAnimatorContainer[i].SetBool("shouldPlay", false);
+                }
+            }
+            else if(gameObject.tag == "SpecAnimated")
+            {
+                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+                for(int i = 0; i < myAnimatorContainer.Length; i++)
+                {
+                    //Debug.Log(i);
+                    myAnimatorContainer[i].SetBool("shouldPlay", false);
+                    myAnimatorContainer[i].SetBool("shouldMove", false);
+                }
+            }
         }
         else
         {
@@ -101,6 +129,16 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                 {
                     //Debug.Log(i);
                     myAnimatorContainer[i].SetBool("shouldPlay", false);
+                }
+            }
+            else if(gameObject.tag == "SpecAnimated")
+            {
+                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+                for(int i = 0; i < myAnimatorContainer.Length; i++)
+                {
+                    //Debug.Log(i);
+                    myAnimatorContainer[i].SetBool("shouldPlay", false);
+                    myAnimatorContainer[i].SetBool("shouldMove", false);
                 }
             }
         }

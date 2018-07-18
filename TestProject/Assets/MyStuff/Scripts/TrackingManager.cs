@@ -8,18 +8,22 @@ public class TrackingManager : MonoBehaviour
 {
 	public GameObject receptionObject;
 	public string receptionID = "4321";
+    public Animator receptionAnimator;
 
 	public GameObject blankObject;
 	public string blankID = "1234";
 
 	public GameObject beakerObject;
 	public string beakerID = "1222";
+    public Animator beakerAnimator;
 
 	public GameObject trayObject;
 	public string trayID = "1333";
+    public Animator trayAnimator;
 
 	public GameObject boyObject;
 	public string boyID = "1444";
+    public Animator boyAnimator;
 
     static public TrackingManager instance;
 
@@ -68,6 +72,15 @@ public class TrackingManager : MonoBehaviour
             {
                 myAnimatorContainer[i].SetBool("shouldPlay", true);
             }
-        }   
+        }
+        else if(animatedVumark.tag == "SpecAnimated")
+        {
+            Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
+            Debug.Log(myAnimatorContainer.Length);
+            for(int i = 0; i < myAnimatorContainer.Length; i++)
+            {
+                    myAnimatorContainer[i].SetBool("shouldMove", true);
+            }
+        }      
 	}
 }
