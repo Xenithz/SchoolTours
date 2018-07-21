@@ -12,7 +12,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
     protected override void Start()
     {
-        testingMode = false;
+        testingMode = true;
         myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();

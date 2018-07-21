@@ -79,7 +79,7 @@ public class TrackingManager : MonoBehaviour
             Debug.Log(myAnimatorContainer.Length);
             for(int i = 0; i < myAnimatorContainer.Length; i++)
             {
-                    myAnimatorContainer[i].SetBool("shouldMove", true);
+                myAnimatorContainer[i].SetBool("shouldMove", true);
             }
         }      
 	}
