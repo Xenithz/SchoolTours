@@ -138,6 +138,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                 {
                     //Debug.Log(i);
                     myAnimatorContainer[i].SetBool("shouldPlay", false);
+                    myAnimatorContainer[i].SetTrigger("shouldGoBack");
                     myAnimatorContainer[i].SetBool("shouldMove", false);
                 }
             }
