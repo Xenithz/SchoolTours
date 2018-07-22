@@ -25,6 +25,9 @@ public class TrackingManager : MonoBehaviour
 	public string boyID = "1444";
     public Animator boyAnimator;
 
+
+    public GameObject depthMask;
+
     static public TrackingManager instance;
 
     private void Start()
@@ -37,11 +40,16 @@ public class TrackingManager : MonoBehaviour
 		var rendererComponents = gameObjectToPass.GetComponentsInChildren<Renderer>(true);
         var colliderComponents = gameObjectToPass.GetComponentsInChildren<Collider>(true);
         var canvasComponents = gameObjectToPass.GetComponentsInChildren<Canvas>(true);
+        var depthMaskComponent = depthMask.GetComponent<Renderer>();
                 
         foreach(var component in rendererComponents)
 		{
 			component.shadowCastingMode = ShadowCastingMode.Off;
 			component.enabled = true;
+            if(component.gameObject.tag == "VirtualButton")
+            {
+                component.enabled = false;
+            }
 		}		
 
         foreach(var component in colliderComponents)
@@ -50,30 +58,31 @@ public class TrackingManager : MonoBehaviour
         foreach(var component in canvasComponents)
             component.enabled = true;
 
+        
+        depthMaskComponent.enabled = true;
+        // foreach (var component in rendererComponents)
+        // {
+        //     //component.enabled = true;
+        //     if(component.gameObject.tag == "VirtualButton")
+        //     {
+        //         component.enabled = false;
+        //     }
+        //     else
+        //     {
+        //         component.enabled = true;
+        //     }
+        // }
 
-        foreach (var component in rendererComponents)
-        {
-            //component.enabled = true;
-            if(component.gameObject.tag == "VirtualButton")
-            {
-                component.enabled = false;
-            }
-            else
-            {
-                component.enabled = true;
-            }
-        }
-
-        if(animatedVumark.tag == "Animated")
-        {
-            Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
-            //Debug.Log(myAnimatorContainer.Length);
-            for(int i = 0; i < myAnimatorContainer.Length; i++)
-            {
-                myAnimatorContainer[i].SetBool("shouldPlay", true);
-            }
-        }
-        else if(animatedVumark.tag == "SpecAnimated")
+        // if(animatedVumark.tag == "Animated")
+        // {
+        //     Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
+        //     //Debug.Log(myAnimatorContainer.Length);
+        //     for(int i = 0; i < myAnimatorContainer.Length; i++)
+        //     {
+        //         myAnimatorContainer[i].SetBool("shouldPlay", true);
+        //     }
+        // }
+        if(animatedVumark.tag == "SpecAnimated")
         {
             Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
             Debug.Log(myAnimatorContainer.Length);
