@@ -314,7 +314,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 2
-    functionName: 
+    functionName: SetAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
