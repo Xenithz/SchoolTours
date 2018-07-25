@@ -38,12 +38,18 @@ public class CanvasManager : MonoBehaviour
 		instance = this;
 		buttonArray = GameObject.FindGameObjectsWithTag("VirtualButton");
 		canvasDictionary = new Dictionary<string, GameObject>();
-		panelsToAdd = mainCanvas.GetComponentsInChildren<Mask>(true);
-		for(int i = 0; i < panelsToAdd.Length; i++)
+        panelsToAdd = mainCanvas.GetComponentsInChildren<Mask>(true);
+		//removed below to get rid of masks
+        /*for(int i = 0; i < panelsToAdd.Length; i++)
 		{
 			GameObject myGameObjectToAdd = panelsToAdd[i].gameObject;
 			canvasDictionary.Add(myGameObjectToAdd.name, myGameObjectToAdd);
-		}
+		}*/
+        for (int i = 0; i < mainCanvas.transform.childCount; i++)
+        {
+            GameObject myGameObjectToAdd = mainCanvas.transform.GetChild(i).gameObject;
+            canvasDictionary.Add(myGameObjectToAdd.name, myGameObjectToAdd);
+        }
 		
 	}
 
@@ -55,7 +61,7 @@ public class CanvasManager : MonoBehaviour
 		{
 			buttonArray[i].SetActive(false);
 		}
-
+        if(currentCanvas!=null)currentCanvas.SetActive(false);
 		currentCanvas = canvasToSet;
 		currentCanvas.SetActive(true);
 	}

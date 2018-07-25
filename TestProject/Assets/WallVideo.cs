@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallVideo : MonoBehaviour 
 {
-	private MovieTexture myMovieTexture;
+	//private MovieTexture myMovieTexture;
 
 	private void Start()
 	{

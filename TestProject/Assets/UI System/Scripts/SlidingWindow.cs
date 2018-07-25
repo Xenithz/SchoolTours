@@ -22,7 +22,8 @@ public class SlidingWindow : MonoBehaviour {
     void Start () {
         rectTransform = GetComponent<RectTransform>();
         originalPosition = rectTransform.anchoredPosition;
-        closedPosition = originalPosition - (rectTransform.sizeDelta.x*2)*Vector2.up;
+        float shift = 800;//rectTransform.sizeDelta.x * 6;
+        closedPosition = originalPosition + 2* shift*Vector2.up;
         rectTransform.anchoredPosition = target = closedPosition;
         Debug.Log(rectTransform.localPosition);
 	}

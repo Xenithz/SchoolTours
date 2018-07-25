@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MyStuff/Scenes/DubicateSampleScene.unity
+    guid: 0bc1f523e9cd44e5ab1d757f727c6b94
+  - enabled: 0
     path: Assets/MyStuff/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0

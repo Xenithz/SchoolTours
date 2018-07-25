@@ -14,8 +14,12 @@ public class TabsManager : MonoBehaviour {
     //public Transform closedTransform;
     //public Transform openTransform;
     float timer;
+
+    bool inialized;
     // Use this for initialization
 	void Start () {
+        if (inialized) return;
+        inialized= true;
         //openTransform = transform;
         originalPos = transform.localPosition;
         originalScale = transform.localScale;
@@ -32,6 +36,7 @@ public class TabsManager : MonoBehaviour {
             tabsButtons[i].image.color = new Color(1,1,1,0.5f);
         }
         managerState = UIElementState.Active;
+
     }
 
 
@@ -62,7 +67,7 @@ public class TabsManager : MonoBehaviour {
                 break;
             case UIElementState.TransitionOut:
                 transform.localPosition = Vector3.Lerp(originalPos, Vector3.zero, timer);
-                transform.localScale = Vector3.Lerp(originalPos, Vector3.zero, timer);
+                transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, timer);
                 timer += Time.deltaTime;
                 if (timer >= 1)
                 {
@@ -76,6 +81,15 @@ public class TabsManager : MonoBehaviour {
                 break;
         }
 	}
+    public int FindTabIndex(string name){
+        for (int i = 0; i < circularScrolls.Length; i++)
+        {
+            if(circularScrolls[i].gameObject.name == name){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void SwitchTab(int index){
         circularScrolls[currentIndex].scrollerState = UIElementState.TransitionOut;
@@ -86,13 +100,17 @@ public class TabsManager : MonoBehaviour {
         currentIndex = index;
     }
 
-    public void Open()
+    public void Open(string window=null)
     {
-
+        if (!inialized) Start();
         CanvasManager.instance.DisableButtons();
         gameObject.SetActive(true);
         timer = 0;
         managerState = UIElementState.TransitionIn;
+        if(window!=null)
+        {
+            SwitchTab(FindTabIndex(window+"Tab"));
+        }
     }
     public void Close()
     {

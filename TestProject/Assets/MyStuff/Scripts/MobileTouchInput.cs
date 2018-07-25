@@ -49,11 +49,11 @@ public class MobileTouchInput : MonoBehaviour
 
 	private void Execute(RaycastHit hitToCheck)
 	{
-		if(CanvasManager.instance.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
+		//if(CanvasManager.instance.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
 		{
             //TODO makes tabs manager use the name
             TabsManager tabsManager= hitToCheck.transform.parent.gameObject.GetComponentInChildren<TabsManager>(true);
-            tabsManager.Open();
+            tabsManager.Open(hitToCheck.transform.name);
 			//CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[hitToCheck.transform.gameObject.name]);
             //SlidingWindow.Open();
 		}
