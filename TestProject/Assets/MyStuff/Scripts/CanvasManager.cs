@@ -69,4 +69,20 @@ public class CanvasManager : MonoBehaviour
 		currentCanvas.SetActive(false);
 		currentCanvas = null;
 	}
+
+    public void RenableButtons()
+    {
+        for (int i = 0; i < buttonArray.Length; i++)
+        {
+            buttonArray[i].SetActive(true);
+        }
+    }
+    public void DisableButtons()
+    {
+        for (int i = 0; i < buttonArray.Length; i++)
+        {
+            buttonArray[i].SetActive(false);
+        }
+    }
+
 }

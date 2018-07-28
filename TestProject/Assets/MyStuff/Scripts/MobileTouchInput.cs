@@ -51,7 +51,11 @@ public class MobileTouchInput : MonoBehaviour
 	{
 		if(CanvasManager.instance.canvasDictionary.ContainsKey(hitToCheck.transform.gameObject.name))
 		{
-			CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[hitToCheck.transform.gameObject.name]);
+            //TODO makes tabs manager use the name
+            TabsManager tabsManager= hitToCheck.transform.parent.gameObject.GetComponentInChildren<TabsManager>(true);
+            tabsManager.Open();
+			//CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[hitToCheck.transform.gameObject.name]);
+            //SlidingWindow.Open();
 		}
 	}
 }
