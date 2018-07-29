@@ -4,8 +4,6 @@ using Vuforia;
 
 public class CustomDetectHandler : DefaultTrackableEventHandler
 {
-    private VuMarkManager myVumarkManager;
-
     private VuMarkTarget myVumark;
 
     private bool testingMode;
@@ -13,7 +11,6 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     protected override void Start()
     {
         testingMode = false;
-        myVumarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
@@ -49,45 +46,41 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                     myAnimatorContainer[i].SetBool("shouldMove", true);
                 }
             }   
-            else if(gameObject.tag == "Animated")
-            {
-                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-                Debug.Log(myAnimatorContainer.Length);
-                for(int i = 0; i < myAnimatorContainer.Length; i++)
-                {
-                    myAnimatorContainer[i].SetBool("shouldPlay", true);
-                }
-            }   
         }
         else
         {
             //base.OnTrackingFound();
-            myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
+             myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
 
             Debug.Log("Current VuMark ID: " + " " + myVumark.InstanceId.StringValue);
 
             if(myVumark.InstanceId.StringValue == TrackingManager.instance.receptionID)
             {
+                TrackingManager.instance.receptionObject.SetActive(true);
                 TrackingManager.instance.EnableObjects(TrackingManager.instance.receptionObject, gameObject);
             }
 
             else if(myVumark.InstanceId.StringValue == TrackingManager.instance.blankID)
             {
+                TrackingManager.instance.blankObject.SetActive(true);
                 TrackingManager.instance.EnableObjects(TrackingManager.instance.blankObject, gameObject);
             }
 
             else if(myVumark.InstanceId.StringValue == TrackingManager.instance.beakerID)
             {
+                TrackingManager.instance.beakerObject.SetActive(true);
                 TrackingManager.instance.EnableObjects(TrackingManager.instance.beakerObject, gameObject);
             }
 
             else if(myVumark.InstanceId.StringValue == TrackingManager.instance.trayID)
             {
+                TrackingManager.instance.trayObject.SetActive(true);
                 TrackingManager.instance.EnableObjects(TrackingManager.instance.trayObject, gameObject);
             }
 
             else if(myVumark.InstanceId.StringValue == TrackingManager.instance.boyID)
             {
+                TrackingManager.instance.boyObject.SetActive(true);
                 TrackingManager.instance.EnableObjects(TrackingManager.instance.boyObject, gameObject);
             }
         }
@@ -98,16 +91,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
         if(testingMode)
         {
             base.OnTrackingLost();
-            if(gameObject.tag == "Animated")
-            {
-                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-                for(int i = 0; i < myAnimatorContainer.Length; i++)
-                {
-                    //Debug.Log(i);
-                    myAnimatorContainer[i].SetBool("shouldPlay", false);
-                }
-            }
-            else if(gameObject.tag == "SpecAnimated")
+            if(gameObject.tag == "SpecAnimated")
             {
                 Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
                 for(int i = 0; i < myAnimatorContainer.Length; i++)
@@ -120,27 +104,52 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
         }
         else
         {
-            base.OnTrackingLost();
-            Debug.Log("get lost");
-            if(gameObject.tag == "Animated")
+            if(myVumark != null)
             {
-                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-                for(int i = 0; i < myAnimatorContainer.Length; i++)
+                base.OnTrackingLost();
+
+                myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
+
+                Debug.Log("Current VuMark ID: " + " " + myVumark.InstanceId.StringValue);
+
+                if(myVumark.InstanceId.StringValue == TrackingManager.instance.receptionID)
                 {
-                    //Debug.Log(i);
-                    myAnimatorContainer[i].SetBool("shouldPlay", false);
+                    TrackingManager.instance.receptionObject.SetActive(false);
                 }
-            }
-            else if(gameObject.tag == "SpecAnimated")
-            {
-                Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
-                for(int i = 0; i < myAnimatorContainer.Length; i++)
+
+                else if(myVumark.InstanceId.StringValue == TrackingManager.instance.blankID)
                 {
-                    //Debug.Log(i);
-                    myAnimatorContainer[i].SetBool("shouldPlay", false);
-                    myAnimatorContainer[i].SetTrigger("shouldGoBack");
-                    myAnimatorContainer[i].SetBool("shouldMove", false);
+                    TrackingManager.instance.blankObject.SetActive(false);
                 }
+
+                else if(myVumark.InstanceId.StringValue == TrackingManager.instance.beakerID)
+                {
+                    TrackingManager.instance.beakerObject.SetActive(false);
+                }
+
+                else if(myVumark.InstanceId.StringValue == TrackingManager.instance.trayID)
+                {
+                    TrackingManager.instance.trayObject.SetActive(false);
+                }
+
+                else if(myVumark.InstanceId.StringValue == TrackingManager.instance.boyID)
+                {
+                    TrackingManager.instance.boyObject.SetActive(false);
+                }
+
+                Debug.Log("get lost");
+                if(gameObject.tag == "SpecAnimated")
+                {
+                    Animator[] myAnimatorContainer = GetComponentsInChildren<Animator>();
+                    for(int i = 0; i < myAnimatorContainer.Length; i++)
+                    {
+                        //Debug.Log(i);
+                        myAnimatorContainer[i].SetBool("shouldPlay", false);
+                        myAnimatorContainer[i].SetTrigger("shouldGoBack");
+                        myAnimatorContainer[i].SetBool("shouldMove", false);
+                    }
+                }
+                myVumark = null;
             }
         }
     }
