@@ -50,7 +50,7 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
         else
         {
             //base.OnTrackingFound();
-            myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
+             myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
 
             Debug.Log("Current VuMark ID: " + " " + myVumark.InstanceId.StringValue);
 
