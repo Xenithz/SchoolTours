@@ -144,9 +144,11 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
                     for(int i = 0; i < myAnimatorContainer.Length; i++)
                     {
                         //Debug.Log(i);
+
                         myAnimatorContainer[i].SetBool("shouldPlay", false);
                         myAnimatorContainer[i].SetTrigger("shouldGoBack");
                         myAnimatorContainer[i].SetBool("shouldMove", false);
+                        myAnimatorContainer[i].SetTrigger("shouldGoDefault");
                     }
                 }
                 myVumark = null;

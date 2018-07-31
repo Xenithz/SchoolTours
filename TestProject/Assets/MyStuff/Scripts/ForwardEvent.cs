@@ -36,4 +36,9 @@ public class ForwardEvent : MonoBehaviour
 			break;
 		}
 	}
+
+	public void StartGrafitti()
+	{
+		TrackingManager.instance.grafittiAnimator.SetTrigger("shouldGoStart");
+	}
 }
