@@ -27,6 +27,7 @@ public class TrackingManager : MonoBehaviour
 	public GameObject boyObject;
 	public string boyID = "1444";
     public Animator boyAnimator;
+    public Animator grafittiAnimator;
 
     public float resetDuration;
     float timer;
