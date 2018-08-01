@@ -12,28 +12,32 @@ public class ForwardEvent : MonoBehaviour
 
 	public void SetAnimation()
 	{
-		switch(gameObject.name)
-		{
-			case "Reception":
-			deskAnimator = TrackingManager.instance.receptionAnimator;
-			deskAnimator.SetBool("shouldPlay", true);
-			break;
-			case "Beaker":
-			Debug.Log("hit");
-			beakerAnimator = TrackingManager.instance.beakerAnimator;
-			beakerAnimator.SetBool("shouldPlay", true);
-			break;
-			case "Tray":
-			trayAnimator = TrackingManager.instance.trayAnimator;
-			trayAnimator.SetBool("shouldPlay", true);
-			break;
-			case "NewBoy":
-			boyAnimator = TrackingManager.instance.boyAnimator;
-			boyAnimator.SetBool("shouldPlay", true);
-			break;
-			default:
-			Debug.Log("Error");
-			break;
-		}
+        //if (TrackingManager.instance.curState != TrackingState.Waiting)
+        {
+            switch (gameObject.name)
+            {
+                case "Reception":
+                    deskAnimator = TrackingManager.instance.receptionAnimator;
+                    deskAnimator.SetBool("shouldPlay", true);
+                    break;
+                case "Beaker":
+                    Debug.Log("hit");
+                    beakerAnimator = TrackingManager.instance.beakerAnimator;
+                    beakerAnimator.SetBool("shouldPlay", true);
+                    break;
+                case "Tray":
+                    trayAnimator = TrackingManager.instance.trayAnimator;
+                    trayAnimator.SetBool("shouldPlay", true);
+                    break;
+                case "NewBoy":
+                    boyAnimator = TrackingManager.instance.boyAnimator;
+                    boyAnimator.SetBool("shouldPlay", true);
+                    break;
+                default:
+                    Debug.Log("Error");
+                    break;
+            }
+        }
+        //TrackingManager.instance.ResetTracking();
 	}
 }

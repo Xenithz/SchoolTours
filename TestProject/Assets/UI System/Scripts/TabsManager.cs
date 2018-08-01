@@ -11,16 +11,13 @@ public class TabsManager : MonoBehaviour {
     public UIElementState managerState;
     Vector3 originalPos;
     Vector3 originalScale;
-    //public Transform closedTransform;
-    //public Transform openTransform;
     float timer;
-
     bool inialized;
-    // Use this for initialization
+
+
 	void Start () {
         if (inialized) return;
         inialized= true;
-        //openTransform = transform;
         originalPos = transform.localPosition;
         originalScale = transform.localScale;
         currentIndex = 0;

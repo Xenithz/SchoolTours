@@ -4,6 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
+public enum TrackingState { Tracking, Waiting, Lost }
+
 public class TrackingManager : MonoBehaviour 
 {
 	public GameObject receptionObject;
@@ -25,18 +28,69 @@ public class TrackingManager : MonoBehaviour
 	public string boyID = "1444";
     public Animator boyAnimator;
 
+    public float resetDuration;
+    float timer;
+    public TrackingState curState;
+
 
     public GameObject depthMask;
 
     static public TrackingManager instance;
+    MessageManager messenger;
+    public GameObject VuMark;
+    GameObject detectedGameObject;
 
     private void Start()
     {
+
+        messenger = FindObjectOfType<MessageManager>();
         instance = this;
+        curState = TrackingState.Lost;
+        if (messenger != null) messenger.ShowMessage("Please aim your camera at our poster");
     }
 
-	public void EnableObjects(GameObject gameObjectToPass, GameObject animatedVumark)
+
+    public void Update()
+    {
+        switch (curState)
+        {
+            case TrackingState.Waiting:
+                {
+
+                    Debug.Log("testo");
+                    timer += Time.deltaTime;
+                    if (timer > resetDuration)
+                    {
+
+                        Animator[] myAnimatorContainer = VuMark.GetComponentsInChildren<Animator>();
+                        for (int i = 0; i < myAnimatorContainer.Length; i++)
+                        {
+                            //Debug.Log(i);
+                            myAnimatorContainer[i].SetBool("shouldPlay", false);
+                            myAnimatorContainer[i].SetTrigger("shouldGoBack");
+                            myAnimatorContainer[i].SetBool("shouldMove", false);
+                        }
+                        curState = TrackingState.Lost;
+                        if (messenger != null) messenger.ShowMessage("Please aim your camera at our poster");
+                    }
+                    break;
+                }
+
+
+            default:
+                break;
+        }
+    }
+
+    public void DisableObjects(){
+
+        curState = TrackingState.Waiting;
+        //TODO ... check if you need to disable objects.
+    }
+
+	public void EnableObjects(GameObject gameObjectToPass)
 	{
+        detectedGameObject = gameObjectToPass;
 		var rendererComponents = gameObjectToPass.GetComponentsInChildren<Renderer>(true);
         var colliderComponents = gameObjectToPass.GetComponentsInChildren<Collider>(true);
         var canvasComponents = gameObjectToPass.GetComponentsInChildren<Canvas>(true);
@@ -60,36 +114,29 @@ public class TrackingManager : MonoBehaviour
 
         
         depthMaskComponent.enabled = true;
-        // foreach (var component in rendererComponents)
-        // {
-        //     //component.enabled = true;
-        //     if(component.gameObject.tag == "VirtualButton")
-        //     {
-        //         component.enabled = false;
-        //     }
-        //     else
-        //     {
-        //         component.enabled = true;
-        //     }
-        // }
 
-        // if(animatedVumark.tag == "Animated")
-        // {
-        //     Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
-        //     //Debug.Log(myAnimatorContainer.Length);
-        //     for(int i = 0; i < myAnimatorContainer.Length; i++)
-        //     {
-        //         myAnimatorContainer[i].SetBool("shouldPlay", true);
-        //     }
-        // }
-        if(animatedVumark.tag == "SpecAnimated")
-        {
             Animator[] myAnimatorContainer = gameObjectToPass.GetComponentsInChildren<Animator>();
+        //if(curState!=TrackingState.Waiting)
+        {
             Debug.Log(myAnimatorContainer.Length);
             for(int i = 0; i < myAnimatorContainer.Length; i++)
             {
                 myAnimatorContainer[i].SetBool("shouldMove", true);
             }
-        }      
+        }    
+        if (curState == TrackingState.Waiting)
+        {
+            for (int i = 0; i < myAnimatorContainer.Length; i++)
+            {
+                myAnimatorContainer[i].SetTrigger("Skip");
+            }
+        }
+        ResetTracking();
+        if (messenger != null) messenger.HideMessage();
 	}
+
+    public void ResetTracking(){
+        curState = TrackingState.Tracking;
+        timer = 0;
+    }
 }
