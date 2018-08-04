@@ -53,7 +53,7 @@ public class CircularScroll : MonoBehaviour
         switch (scrollerState)
         {
             case UIElementState.Active:
-                UpdateInput();
+                if(!SlidingWindow.IsOpen()) UpdateInput();
                 break;
             case UIElementState.TransitionOut:
                 scrollValue += 0.1f * (idleValue - scrollValue);
@@ -118,6 +118,10 @@ public class CircularScroll : MonoBehaviour
     public void ScrollTo(int index)
     {
         scrollValue = (index + 0.48f) * step;
+    }
+    public int GetCurIndex()
+    {
+        return (int)((scrollValue+0.5f) / step);
     }
 
     public void ForceIdle()

@@ -49,4 +49,8 @@ public class SlidingWindow : MonoBehaviour {
     {
         target = closedPosition;
     }
+
+    public static bool IsOpen(){
+        return Instance.target == Instance.originalPosition;
+    }
 }

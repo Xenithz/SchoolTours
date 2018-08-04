@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class TabsManager : MonoBehaviour {
+public class TabsManager : MonoBehaviour
+{
     public CircularScroll[] circularScrolls;
     int currentIndex;
     public Button[] tabsButtons;
+    public RectTransform scrollIconsPanel;
+    public GameObject scrollIconPrefab;
     public UIElementState managerState;
     Vector3 originalPos;
     Vector3 originalScale;
@@ -15,14 +18,15 @@ public class TabsManager : MonoBehaviour {
     bool inialized;
 
 
-	void Start () {
+    void Start()
+    {
         if (inialized) return;
-        inialized= true;
+        inialized = true;
         originalPos = transform.localPosition;
         originalScale = transform.localScale;
         currentIndex = 0;
         circularScrolls = GetComponentsInChildren<CircularScroll>(true);
-        for (int i = 0; i <circularScrolls.Length ; i++)
+        for (int i = 0; i < circularScrolls.Length; i++)
         {
             circularScrolls[i].Init();
             circularScrolls[i].ForceIdle();
@@ -30,7 +34,7 @@ public class TabsManager : MonoBehaviour {
         SwitchTab(0);
         for (int i = 1; i < tabsButtons.Length; i++)
         {
-            tabsButtons[i].image.color = new Color(1,1,1,0.5f);
+            tabsButtons[i].image.color = new Color(1, 1, 1, 0.5f);
         }
         managerState = UIElementState.Active;
 
@@ -39,25 +43,33 @@ public class TabsManager : MonoBehaviour {
 
 
     // Update is called once per frame
-	void Update () {
+    void Update()
+    {
         transform.LookAt(Camera.main.transform.position);
+        int selectedPage = circularScrolls[currentIndex].GetCurIndex();
+        for (int i = 0; i < circularScrolls[currentIndex].scrollableItems.Count; i++)
+        {
+            scrollIconsPanel.GetChild(i).GetComponent<Image>().color = Color.white * (i == selectedPage ? 1 : 0.5f);
+        }
 
         switch (managerState)
         {
             case UIElementState.Active:
 
-        for (int i = 0; i < tabsButtons.Length; i++)
+                for (int i = 0; i < tabsButtons.Length; i++)
                 {
                     float rotDelta = -20 * Mathf.Clamp01(Mathf.Abs(currentIndex - i) / 2f);
 
                     tabsButtons[i].transform.localRotation = Quaternion.RotateTowards(tabsButtons[i].transform.localRotation, Quaternion.Euler(0, rotDelta, 0), 0.9f);
-                }break;
+                }
+                break;
 
             case UIElementState.TransitionIn:
                 transform.localPosition = Vector3.Lerp(Vector3.zero, originalPos, timer);
                 transform.localScale = Vector3.Lerp(Vector3.zero, originalScale, timer);
                 timer += Time.deltaTime;
-                if(timer>=1){
+                if (timer >= 1)
+                {
                     timer = 0;
                     managerState = UIElementState.Active;
                 }
@@ -77,36 +89,50 @@ public class TabsManager : MonoBehaviour {
             default:
                 break;
         }
-	}
-    public int FindTabIndex(string name){
+    
+    }
+    public int FindTabIndex(string name)
+    {
         for (int i = 0; i < circularScrolls.Length; i++)
         {
-            if(circularScrolls[i].gameObject.name == name){
+            if (circularScrolls[i].gameObject.name == name)
+            {
                 return i;
             }
         }
         return -1;
     }
 
-    public void SwitchTab(int index){
+    public void SwitchTab(int index)
+    {
         circularScrolls[currentIndex].scrollerState = UIElementState.TransitionOut;
         tabsButtons[currentIndex].image.color = new Color(1, 1, 1, 0.5f);
         tabsButtons[index].image.color = new Color(1, 1, 1, 1);
         circularScrolls[index].gameObject.SetActive(true);
         circularScrolls[index].scrollerState = UIElementState.TransitionIn;
         currentIndex = index;
+        while (scrollIconsPanel.childCount < circularScrolls[currentIndex].scrollableItems.Count)
+        {
+            Instantiate(scrollIconPrefab, scrollIconsPanel);
+        }
+        while (scrollIconsPanel.childCount > circularScrolls[currentIndex].scrollableItems.Count)
+        {
+            DestroyImmediate(scrollIconsPanel.GetChild(0).gameObject);
+        }
     }
 
-    public void Open(string window=null)
+    public void Open(string window = null)
     {
         if (!inialized) Start();
         CanvasManager.instance.DisableButtons();
         gameObject.SetActive(true);
         timer = 0;
         managerState = UIElementState.TransitionIn;
-        if(window!=null)
+        transform.localPosition = Vector3.Lerp(Vector3.zero, originalPos, timer);
+        transform.localScale = Vector3.Lerp(Vector3.zero, originalScale, timer);
+        if (window != null)
         {
-            SwitchTab(FindTabIndex(window+"Tab"));
+            SwitchTab(FindTabIndex(window + "Tab"));
         }
     }
     public void Close()

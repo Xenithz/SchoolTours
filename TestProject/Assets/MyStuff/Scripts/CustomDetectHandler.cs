@@ -59,6 +59,6 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
     {
 
         base.OnTrackingLost();
-        TrackingManager.instance.DisableObjects();
+        if(TrackingManager.instance!= null) TrackingManager.instance.DisableObjects();
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4428489, g: 0.49201125, b: 0.57177496, a: 1}
+  m_IndirectSpecularColor: {r: 0.44284868, g: 0.49201077, b: 0.5717742, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27831,7 +27831,10 @@ MonoBehaviour:
   boyID: 1444
   boyAnimator: {fileID: 1121152011}
   grafittiAnimator: {fileID: 1649498689}
+  resetDuration: 0
+  curState: 0
   depthMask: {fileID: 1431024721}
+  VuMark: {fileID: 1523882323}
 --- !u!1 &1981945469
 GameObject:
   m_ObjectHideFlags: 0

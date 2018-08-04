@@ -47,7 +47,10 @@ public class TrackingManager : MonoBehaviour
         messenger = FindObjectOfType<MessageManager>();
         instance = this;
         curState = TrackingState.Lost;
-        if (messenger != null) messenger.ShowMessage("Please aim your camera at our poster");
+        if (messenger != null)
+        {
+            messenger.ShowMessage("Please aim your camera at our poster");
+        }
     }
 
 
@@ -70,9 +73,9 @@ public class TrackingManager : MonoBehaviour
                             myAnimatorContainer[i].SetBool("shouldPlay", false);
                             myAnimatorContainer[i].SetTrigger("shouldGoBack");
                             myAnimatorContainer[i].SetBool("shouldMove", false);
+                            myAnimatorContainer[i].SetTrigger("shouldGoDefault");
                         }
                         curState = TrackingState.Lost;
-                        if (messenger != null) messenger.ShowMessage("Please aim your camera at our poster");
                     }
                     break;
                 }
@@ -86,6 +89,10 @@ public class TrackingManager : MonoBehaviour
     public void DisableObjects(){
 
         curState = TrackingState.Waiting;
+        if (messenger != null && !SlidingWindow.IsOpen())
+        {
+            messenger.ShowMessage("Please aim your camera at our poster");
+        }
         //TODO ... check if you need to disable objects.
     }
 

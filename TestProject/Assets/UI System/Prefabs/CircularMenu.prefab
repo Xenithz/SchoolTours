@@ -123,7 +123,7 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4345734048709572}
+  - component: {fileID: 4292008177871350}
   m_Layer: 0
   m_Name: FeesTab
   m_TagString: Untagged
@@ -323,6 +323,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4292008177871350
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393102057646032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4345734048709572
 Transform:
   m_ObjectHideFlags: 1
@@ -814,8 +827,8 @@ MonoBehaviour:
   angleShift: 180
   alpharange: 0.5
   scrollableItems: []
-  scrollingSensitivity: 2
-  touchEnabled: 0
+  scrollingSensitivity: 0.05
+  touchEnabled: 1
   scrollerState: 0
 --- !u!114 &114762953025093768
 MonoBehaviour:

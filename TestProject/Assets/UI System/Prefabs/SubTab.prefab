@@ -232,8 +232,8 @@ MonoBehaviour:
   angleShift: 180
   alpharange: 0.5
   scrollableItems: []
-  scrollingSensitivity: 2
-  touchEnabled: 0
+  scrollingSensitivity: 0.05
+  touchEnabled: 1
   scrollerState: 0
 --- !u!114 &114436029798264730
 MonoBehaviour:

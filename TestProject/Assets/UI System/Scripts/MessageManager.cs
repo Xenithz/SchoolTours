@@ -7,6 +7,7 @@ public class MessageManager : MonoBehaviour {
     
     public Text textUI;
     public CanvasGroup CG;
+    float targetAlpha;
     //float timeStep;
     private void Start()
     {
@@ -14,19 +15,23 @@ public class MessageManager : MonoBehaviour {
         CG.interactable = false;
     }
 
+
     public void ShowMessage(string s)
     {
         textUI.text = s;
-        StopCoroutine("ChangeAlpha");
-        StartCoroutine(ChangeAlpha(1));
+        //StopCoroutine("ChangeAlpha");
+
+        targetAlpha = 1;
+        StartCoroutine(ChangeAlpha());
     }
     public void HideMessage()
     {
-        StopCoroutine("ChangeAlpha");
-        StartCoroutine(ChangeAlpha(0));
+        //StopCoroutine("ChangeAlpha");
+        targetAlpha = 0;
+        StartCoroutine(ChangeAlpha());
     }
 
-    IEnumerator ChangeAlpha(float targetAlpha)
+    IEnumerator ChangeAlpha()
     {
         while (Mathf.Abs(CG.alpha - targetAlpha)>0.01f){
             CG.alpha += 0.1f * (targetAlpha - CG.alpha);
