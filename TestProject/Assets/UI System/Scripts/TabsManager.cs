@@ -16,7 +16,7 @@ public class TabsManager : MonoBehaviour
     Vector3 originalScale;
     float timer;
     bool inialized;
-
+    public Transform SideButtonsParent;
 
     void Start()
     {
@@ -25,6 +25,8 @@ public class TabsManager : MonoBehaviour
         originalPos = transform.localPosition;
         originalScale = transform.localScale;
         currentIndex = 0;
+        tabsButtons = SideButtonsParent.GetComponentsInChildren<Button>();
+
         circularScrolls = GetComponentsInChildren<CircularScroll>(true);
         for (int i = 0; i < circularScrolls.Length; i++)
         {
@@ -133,6 +135,10 @@ public class TabsManager : MonoBehaviour
         if (window != null)
         {
             SwitchTab(FindTabIndex(window + "Tab"));
+        }
+        for (int i = 0; i < tabsButtons.Length; i++)
+        {
+            tabsButtons[i].transform.localRotation = Quaternion.Euler(-60 * i, 0, 0);
         }
     }
     public void Close()
