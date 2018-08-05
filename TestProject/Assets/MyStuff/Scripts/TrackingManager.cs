@@ -86,12 +86,39 @@ public class TrackingManager : MonoBehaviour
         }
     }
 
-    public void DisableObjects(){
+    public void DisableObjects(Vuforia.VuMarkTarget vumarkTargetTracked)
+    {
 
         curState = TrackingState.Waiting;
         if (messenger != null && !SlidingWindow.IsOpen())
         {
             messenger.ShowMessage("Please aim your camera at our poster");
+        }
+
+
+        if (vumarkTargetTracked.InstanceId.StringValue == TrackingManager.instance.receptionID)
+        {
+            TrackingManager.instance.receptionObject.SetActive(false);
+        }
+
+        else if (vumarkTargetTracked.InstanceId.StringValue == TrackingManager.instance.blankID)
+        {
+            TrackingManager.instance.blankObject.SetActive(false);
+        }
+
+        else if (vumarkTargetTracked.InstanceId.StringValue == TrackingManager.instance.beakerID)
+        {
+            TrackingManager.instance.beakerObject.SetActive(false);
+        }
+
+        else if (vumarkTargetTracked.InstanceId.StringValue == TrackingManager.instance.trayID)
+        {
+            TrackingManager.instance.trayObject.SetActive(false);
+        }
+
+        else if (vumarkTargetTracked.InstanceId.StringValue == TrackingManager.instance.boyID)
+        {
+            TrackingManager.instance.boyObject.SetActive(false);
         }
         //TODO ... check if you need to disable objects.
     }
