@@ -62,7 +62,8 @@ public class TabsManager : MonoBehaviour
                 {
                     float rotDelta = -20 * Mathf.Clamp01(Mathf.Abs(currentIndex - i) / 2f);
 
-                    tabsButtons[i].transform.localRotation = Quaternion.RotateTowards(tabsButtons[i].transform.localRotation, Quaternion.Euler(0, rotDelta, 0), 0.9f);
+                    tabsButtons[i].transform.localRotation = Quaternion.RotateTowards(tabsButtons[i].transform.localRotation, Quaternion.Euler(0, rotDelta, 0), 5f);
+                    //0.9f original max degrees delta value
                 }
                 break;
 

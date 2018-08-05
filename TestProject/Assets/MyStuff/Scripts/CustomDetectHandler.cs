@@ -13,7 +13,6 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
     }
 
-
     protected override void OnTrackingFound()
     {
 
@@ -57,8 +56,9 @@ public class CustomDetectHandler : DefaultTrackableEventHandler
 
     protected override void OnTrackingLost()
     {
+        myVumark = GetComponent<VuMarkBehaviour>().VuMarkTarget;
 
         base.OnTrackingLost();
-        if(TrackingManager.instance!= null) TrackingManager.instance.DisableObjects();
+        if(TrackingManager.instance!= null) TrackingManager.instance.DisableObjects(myVumark);
     }
 }
