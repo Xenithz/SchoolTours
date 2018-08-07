@@ -86,23 +86,25 @@ public class TrackingManager : MonoBehaviour
 
     public void DisableObjects(Vuforia.VuMarkTarget vumarkTargetTracked)
     {
-        foreach(Transform child in detectedGameObject.transform)
-        {
-            if(child.GetComponent<Animator>() != null)
-            {
-                Animator temp = child.GetComponent<Animator>();
-                //No built in method to check if animator param exists
-                if(temp.GetBool("shouldPlay") == true || temp.GetBool("shouldPlay") == false )
-                {
-                    mainController = temp;
-                }
-            }
-        }
+        // foreach(Transform child in detectedGameObject.transform)
+        // {
+        //     if(child.GetComponent<Animator>() != null)
+        //     {
+        //         Animator temp = child.GetComponent<Animator>();
+        //         //No built in method to check if animator param exists
+        //         if(temp.GetBool("shouldPlay") == true || temp.GetBool("shouldPlay") == false )
+        //         {
+        //             mainController = temp;
+        //         }
+        //     }
+        // }
 
-        if(mainController.GetCurrentAnimatorStateInfo(0).IsName("main"))
-        {
-            curState = TrackingState.Waiting;
-        }
+        // if(mainController.GetCurrentAnimatorStateInfo(0).IsName("main"))
+        // {
+        //     curState = TrackingState.Waiting;
+        // }
+
+        curState = TrackingState.Waiting;
         
         if (messenger != null && !SlidingWindow.IsOpen())
         {
