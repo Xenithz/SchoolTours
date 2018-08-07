@@ -141,12 +141,37 @@ public class TabsManager : MonoBehaviour
         {
             tabsButtons[i].transform.localRotation = Quaternion.Euler(-60 * i, 0, 0);
         }
+
+       ToggleHitBox(false);
     }
     public void Close()
     {
         CanvasManager.instance.RenableButtons();
         timer = 0;
         managerState = UIElementState.TransitionOut;
+        ToggleHitBox(true);
+    }
 
+    public void ToggleHitBox(bool boolToPass)
+    {
+        if(TrackingManager.instance.detectedGameObject == TrackingManager.instance.receptionObject)
+        {
+            TrackingManager.instance.receptionTrigger.SetActive(boolToPass);
+        }
+        
+        if(TrackingManager.instance.detectedGameObject == TrackingManager.instance.boyObject)
+        {
+            TrackingManager.instance.boyTrigger.SetActive(boolToPass);
+        }
+
+        if(TrackingManager.instance.detectedGameObject == TrackingManager.instance.trayObject)
+        {
+            TrackingManager.instance.trayTrigger.SetActive(boolToPass);
+        }
+
+        if(TrackingManager.instance.detectedGameObject == TrackingManager.instance.beakerObject)
+        {
+            TrackingManager.instance.beakerTrigger.SetActive(boolToPass);
+        }
     }
 }

@@ -10,6 +10,7 @@ public enum TrackingState { Tracking, Waiting, Lost }
 public class TrackingManager : MonoBehaviour 
 {
 	public GameObject receptionObject;
+    public GameObject receptionTrigger;
 	public string receptionID = "4321";
     public Animator receptionAnimator;
 
@@ -17,14 +18,17 @@ public class TrackingManager : MonoBehaviour
 	public string blankID = "1234";
 
 	public GameObject beakerObject;
+    public GameObject beakerTrigger;
 	public string beakerID = "1222";
     public Animator beakerAnimator;
 
 	public GameObject trayObject;
+    public GameObject trayTrigger;
 	public string trayID = "1333";
     public Animator trayAnimator;
 
 	public GameObject boyObject;
+    public GameObject boyTrigger;
 	public string boyID = "1444";
     public Animator boyAnimator;
     public Animator grafittiAnimator;
@@ -39,7 +43,7 @@ public class TrackingManager : MonoBehaviour
     static public TrackingManager instance;
     MessageManager messenger;
     public GameObject VuMark;
-    GameObject detectedGameObject;
+    public GameObject detectedGameObject;
     Animator mainController;
 
     private void Start()
