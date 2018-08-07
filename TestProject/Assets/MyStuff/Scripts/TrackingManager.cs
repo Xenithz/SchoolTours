@@ -40,6 +40,7 @@ public class TrackingManager : MonoBehaviour
     MessageManager messenger;
     public GameObject VuMark;
     GameObject detectedGameObject;
+    Animator mainController;
 
     private void Start()
     {
@@ -59,17 +60,14 @@ public class TrackingManager : MonoBehaviour
         switch (curState)
         {
             case TrackingState.Waiting:
-                {
-
-                    Debug.Log("testo");
+            {
+                    Debug.Log("test");
                     timer += Time.deltaTime;
                     if (timer > resetDuration)
                     {
-
                         Animator[] myAnimatorContainer = VuMark.GetComponentsInChildren<Animator>();
                         for (int i = 0; i < myAnimatorContainer.Length; i++)
                         {
-                            //Debug.Log(i);
                             myAnimatorContainer[i].SetBool("shouldPlay", false);
                             myAnimatorContainer[i].SetTrigger("shouldGoBack");
                             myAnimatorContainer[i].SetBool("shouldMove", false);
@@ -78,7 +76,7 @@ public class TrackingManager : MonoBehaviour
                         curState = TrackingState.Lost;
                     }
                     break;
-                }
+            }
 
 
             default:
@@ -88,8 +86,24 @@ public class TrackingManager : MonoBehaviour
 
     public void DisableObjects(Vuforia.VuMarkTarget vumarkTargetTracked)
     {
+        foreach(Transform child in detectedGameObject.transform)
+        {
+            if(child.GetComponent<Animator>() != null)
+            {
+                Animator temp = child.GetComponent<Animator>();
+                //No built in method to check if animator param exists
+                if(temp.GetBool("shouldPlay") == true || temp.GetBool("shouldPlay") == false )
+                {
+                    mainController = temp;
+                }
+            }
+        }
 
-        curState = TrackingState.Waiting;
+        if(mainController.GetCurrentAnimatorStateInfo(0).IsName("main"))
+        {
+            curState = TrackingState.Waiting;
+        }
+        
         if (messenger != null && !SlidingWindow.IsOpen())
         {
             messenger.ShowMessage("Please aim your camera at our poster");
