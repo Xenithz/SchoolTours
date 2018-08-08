@@ -9,4 +9,4 @@ public class ReadMoreBtnAction : MonoBehaviour {
         CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[gameObject.name.Replace("Btn","")]);
         SlidingWindow.Open();
     }
-}
+}   

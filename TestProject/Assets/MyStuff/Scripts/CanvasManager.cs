@@ -49,20 +49,22 @@ public class CanvasManager : MonoBehaviour
         {
             GameObject myGameObjectToAdd = mainCanvas.transform.GetChild(i).gameObject;
             canvasDictionary.Add(myGameObjectToAdd.name, myGameObjectToAdd);
+			Debug.Log(myGameObjectToAdd.name + " added to canvas dictionary!");
         }
-		
+		Debug.Log("Added " + canvasDictionary.Count + " children");
 	}
 
 	public void SetCurrentCanvas(GameObject canvasToSet)
 	{
-		Debug.Log("Setting canvas");
-
-		for(int i = 0; i < buttonArray.Length; i++)
+		Debug.Log("Called");
+		if(canvasToSet == null)
 		{
-			buttonArray[i].SetActive(false);
+			Debug.Log("Canvas to set doesn't exist!");
 		}
+
         if(currentCanvas!=null)currentCanvas.SetActive(false);
 		currentCanvas = canvasToSet;
+		Debug.Log("Setting canvas." + " " + "Current canvas is:" + " " + currentCanvas.name);
 		currentCanvas.SetActive(true);
 	}
 

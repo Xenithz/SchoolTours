@@ -190,6 +190,7 @@ public class TrackingManager : MonoBehaviour
             {
                 myAnimatorContainer[i].SetTrigger("Skip");
             }
+            ToggleArrows(true);
         }
         ResetTracking();
         if (messenger != null) messenger.HideMessage();
