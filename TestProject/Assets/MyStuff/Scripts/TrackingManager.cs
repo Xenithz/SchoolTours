@@ -46,6 +46,9 @@ public class TrackingManager : MonoBehaviour
     public GameObject detectedGameObject;
     Animator mainController;
 
+    public GameObject downArrowSprite;
+    public GameObject upArrowSprite;
+
     private void Start()
     {
 
@@ -110,6 +113,7 @@ public class TrackingManager : MonoBehaviour
 
         curState = TrackingState.Waiting;
         
+        
         if (messenger != null && !SlidingWindow.IsOpen())
         {
             messenger.ShowMessage("Please aim your camera at our poster");
@@ -140,7 +144,8 @@ public class TrackingManager : MonoBehaviour
         {
             TrackingManager.instance.boyObject.SetActive(false);
         }
-        //TODO ... check if you need to disable objects.
+
+        ToggleArrows(false);
     }
 
 	public void EnableObjects(GameObject gameObjectToPass)
@@ -190,8 +195,15 @@ public class TrackingManager : MonoBehaviour
         if (messenger != null) messenger.HideMessage();
 	}
 
-    public void ResetTracking(){
+    public void ResetTracking()
+    {
         curState = TrackingState.Tracking;
         timer = 0;
+    }
+
+    public void ToggleArrows(bool boolToPass)
+    {
+        downArrowSprite.SetActive(boolToPass);
+        upArrowSprite.SetActive(boolToPass);
     }
 }

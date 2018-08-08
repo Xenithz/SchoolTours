@@ -39,10 +39,7 @@ public class TabsManager : MonoBehaviour
             tabsButtons[i].image.color = new Color(1, 1, 1, 0.5f);
         }
         managerState = UIElementState.Active;
-
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -143,6 +140,7 @@ public class TabsManager : MonoBehaviour
         }
 
        ToggleHitBox(false);
+       TrackingManager.instance.ToggleArrows(true);
     }
     public void Close()
     {
@@ -150,6 +148,7 @@ public class TabsManager : MonoBehaviour
         timer = 0;
         managerState = UIElementState.TransitionOut;
         ToggleHitBox(true);
+        TrackingManager.instance.ToggleArrows(false);
     }
 
     public void ToggleHitBox(bool boolToPass)

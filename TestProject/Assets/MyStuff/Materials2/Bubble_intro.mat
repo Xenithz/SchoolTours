@@ -4,9 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BubbleCurriculum
+  m_Name: Bubble_intro
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
   m_LightmapFlags: 2
@@ -36,11 +36,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 72485322104bc42c7938f9f583349dc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 16ce3eb2b4703430f9caf7670c348f00, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e0c0c73fd09754af2903af18769aa4a2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3dfbdf8206e874dd8b704667193e9128, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.4627451, g: 0.8156863, b: 0.8509804, a: 0.43137255}
+    - _Color: {r: 1, g: 0.59906214, b: 0.25943398, a: 0.27450982}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
