@@ -8,5 +8,6 @@ public class ReadMoreBtnAction : MonoBehaviour {
         Debug.Log(gameObject.name.Replace("Btn", ""));
         CanvasManager.instance.SetCurrentCanvas(CanvasManager.instance.canvasDictionary[gameObject.name.Replace("Btn","")]);
         SlidingWindow.Open();
+        TrackingManager.instance.ToggleArrows(false);
     }
 }   
