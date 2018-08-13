@@ -346,7 +346,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ec14699479a4641bc9beb7c5d87f98a5,
+      objectReference: {fileID: 21300000, guid: 7d78dd8cc6dd71847832ee987b12e5a7,
         type: 3}
     - target: {fileID: 4862173409112040, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
       propertyPath: m_LocalScale.x
@@ -362,7 +362,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4862173409112040, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.2
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 4889672428451870, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1240,6 +1240,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.01493322
       objectReference: {fileID: 0}
+    - target: {fileID: 1849465769477698, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
+      propertyPath: m_Name
+      value: finalsprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862173409112040, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -57.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae574ea8f93242e8baeffee6dbbdf74, type: 2}
   m_IsPrefabAsset: 0
@@ -1903,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Reception
+  videoPath: https://amcg.000webhostapp.com/videos/Welcome%20to%20GEMS%20Metropole%20School%20-%20Dubai.mp4
 --- !u!114 &88447697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27451,7 +27459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Science
+  videoPath: https://amcg.000webhostapp.com/videos/Little%20Beakers%20-%20Science%20Lab%20for%20Kids.mp4
 --- !u!114 &844210900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30548,7 +30556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Science
+  videoPath: https://amcg.000webhostapp.com/videos/Architectural%20Animation%20-%20Lab%20Design.mp4
 --- !u!114 &1064480031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33229,7 +33237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Extra%20Curricular
+  videoPath: https://amcg.000webhostapp.com/videos/Art%20Education%20Students%20Create%20Projects%20for%20Elementary%20School.mp4
 --- !u!114 &1225961466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37940,7 +37948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Reception
+  videoPath: https://amcg.000webhostapp.com/videos/campustour.mp4
 --- !u!114 &1459526426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38553,7 +38561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Reception
+  videoPath: https://amcg.000webhostapp.com/videos/principal.mp4
 --- !u!114 &1514798771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40282,7 +40290,7 @@ Prefab:
     - target: {fileID: 224489294448430098, guid: b6f9ebdc93b5142038849574ce477be2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000281154
+      value: -0.00000666965
       objectReference: {fileID: 0}
     - target: {fileID: 224962183028622976, guid: b6f9ebdc93b5142038849574ce477be2,
         type: 2}
@@ -40341,6 +40349,21 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224489294448430098, guid: b6f9ebdc93b5142038849574ce477be2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -441.50006
+      objectReference: {fileID: 0}
+    - target: {fileID: 224784425842297552, guid: b6f9ebdc93b5142038849574ce477be2,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444732912316460, guid: b6f9ebdc93b5142038849574ce477be2,
+        type: 2}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f9ebdc93b5142038849574ce477be2, type: 2}
@@ -50929,7 +50952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Extra%20Curricular
+  videoPath: https://amcg.000webhostapp.com/videos/Before%20and%20After%20School%20Care%20for%20ages%205%20-%2013%20at%20The%20Childrens%20Courtyard%20(Virtual%20Tour).mp4
 --- !u!114 &2022771740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53009,7 +53032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://www.dropbox.com/home/School%20Mate%20Videos/Cafeteria
+  videoPath: https://amcg.000webhostapp.com/videos/Shedeck%20Elementary%20Cafeteria%20Procedures.mp4
 --- !u!114 &2129054735
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -78,6 +78,7 @@ public class TrackingManager : MonoBehaviour
                             myAnimatorContainer[i].SetBool("shouldMove", false);
                             myAnimatorContainer[i].SetTrigger("shouldGoDefault");
                         }
+                        ToggleArrows(false);
                         curState = TrackingState.Lost;
                     }
                     break;
