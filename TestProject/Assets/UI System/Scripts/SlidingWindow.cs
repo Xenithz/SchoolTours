@@ -38,6 +38,7 @@ public class SlidingWindow : MonoBehaviour {
     public static void Close()
     {
         Instance.target = Instance.closedPosition;
+        TrackingManager.instance.ToggleArrows(true);
     }
     public static void Open()
     {
