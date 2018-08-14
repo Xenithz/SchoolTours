@@ -34,7 +34,7 @@ public class TrackingManager : MonoBehaviour
     public Animator grafittiAnimator;
 
     public float resetDuration;
-    float timer;
+    public float timer;
     public TrackingState curState;
 
 
@@ -44,9 +44,8 @@ public class TrackingManager : MonoBehaviour
     MessageManager messenger;
     public GameObject VuMark;
     public GameObject detectedGameObject;
-
-    public GameObject downArrowSprite;
-    public GameObject upArrowSprite;
+    public TabsManager myTabsManagerRef;
+    public GameObject arrowSprite;
 
     private void Start()
     {
@@ -79,6 +78,7 @@ public class TrackingManager : MonoBehaviour
                             myAnimatorContainer[i].SetTrigger("shouldGoDefault");
                         }
                         ToggleArrows(false);
+                        myTabsManagerRef.Close();
                         curState = TrackingState.Lost;
                     }
                     break;
@@ -122,6 +122,7 @@ public class TrackingManager : MonoBehaviour
     public void EnableObjects(GameObject gameObjectToPass)
     {
         detectedGameObject = gameObjectToPass;
+        myTabsManagerRef = detectedGameObject.GetComponentInChildren<TabsManager>(true);
         var rendererComponents = gameObjectToPass.GetComponentsInChildren<Renderer>(true);
         var colliderComponents = gameObjectToPass.GetComponentsInChildren<Collider>(true);
         var canvasComponents = gameObjectToPass.GetComponentsInChildren<Canvas>(true);
@@ -176,7 +177,6 @@ public class TrackingManager : MonoBehaviour
 
     public void ToggleArrows(bool boolToPass)
     {
-        downArrowSprite.SetActive(boolToPass);
-        upArrowSprite.SetActive(boolToPass);
+        arrowSprite.SetActive(boolToPass);
     }
 }

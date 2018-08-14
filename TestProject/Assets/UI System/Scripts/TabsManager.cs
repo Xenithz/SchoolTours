@@ -149,6 +149,7 @@ public class TabsManager : MonoBehaviour
         managerState = UIElementState.TransitionOut;
         ToggleHitBox(true);
         TrackingManager.instance.ToggleArrows(false);
+        gameObject.SetActive(false);
     }
 
     public void ToggleHitBox(bool boolToPass)
