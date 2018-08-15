@@ -6,7 +6,8 @@ public class IconToVideo : MonoBehaviour {
     public string videoPath;
 
     public void Play (){
-        Handheld.PlayFullScreenMovie(videoPath);
+        // Handheld.PlayFullScreenMovie(videoPath);
+        FindObjectOfType<RawImageToVideo>().StartVideo(videoPath);
     }
 
 }

@@ -20,91 +20,61 @@ public class RawImageToVideo : MonoBehaviour
 
 	[SerializeField]
 	private VideoSource myVideoSource;
-
-	[SerializeField]
-	private AudioSource myAudioSource;
-
+    
 	[SerializeField]
 	private bool videoPaused = false;
 	public bool videoInitCheck = true;
 
-	private void Start()
-	{
-		myVideoPlayer = gameObject.AddComponent<VideoPlayer>();
-		myAudioSource = gameObject.AddComponent<AudioSource>();
-		playSprite = CanvasManager.instance.playSprite;
-		continueSprite = CanvasManager.instance.resumeSprite;
-	}
+    private void Start()
+    {
 
-	private void OnEnable()
-	{
-		myPlayButton.GetComponent<Image>().enabled = true;
-	}
+        myVideoPlayer.playOnAwake = false;
+        myVideoPlayer.started += (VideoPlayer source) =>
+        {
+
+            if (myVideoPlayer == null || myVideoPlayer.texture == null) return;
+            float ratio = myVideoPlayer.texture.height / (float)myVideoPlayer.texture.width;
+            myImage.rectTransform.sizeDelta = new Vector2(myImage.rectTransform.sizeDelta.x, myImage.rectTransform.sizeDelta.x * ratio);
+            myImage.texture = myVideoPlayer.texture;
+            myVideoPlayer.EnableAudioTrack(0, true);
+        };
+    }
 
 	private void OnDisable()
 	{
 		myVideoPlayer.Stop();
-		videoInitCheck = true;
 	}
 
-	IEnumerator StartVideo()
+
+    /// <summary>
+    /// use this fnction to start a video using a url
+    /// </summary>
+    /// <param name="url"></param>
+	public void StartVideo(string url)
 	{
-		myPlayButton.GetComponent<Image>().enabled = false;
-		videoInitCheck = false;
+        myVideoPlayer.Stop();
+        myVideoPlayer.url = url;
+        myVideoPlayer.Play();
+        //myVideoPlayer.Prepare();
 
-		myVideoPlayer.playOnAwake = false;
-		myAudioSource.playOnAwake = false;
-		myAudioSource.Pause();
-		
-		myVideoPlayer.source = VideoSource.VideoClip;
-
-		myVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-
-		myVideoPlayer.EnableAudioTrack(0, true);
-		myVideoPlayer.SetTargetAudioSource(0, myAudioSource);
-
-		myVideoPlayer.clip = myVideo;
-		myVideoPlayer.Prepare();
-
-		while(myVideoPlayer.isPrepared == false)
-		{
-			yield return null;
-		}
-
-		myImage.texture = myVideoPlayer.texture;
-
-		myVideoPlayer.Play();
-
-		myAudioSource.Play();
-
-		if(myVideoPlayer.isPlaying != true)
-		{
-			myPlayButton.GetComponent<Image>().enabled = true;
-			yield return null;
-		}
-	}
-
-	public void PlayAndPause()
+    }
+    /// <summary>
+    /// use this to pause and play a video with the same button;
+    /// </summary>
+    public void PlayAndPause()
 	{
-		if(!videoInitCheck && !videoPaused && myVideoPlayer.isPlaying)
+
+		if(myVideoPlayer.isPlaying)
 		{
 			myVideoPlayer.Pause();
-			myAudioSource.Pause();
 			myPlayButton.GetComponent<Image>().enabled = true;
 			myPlayButton.GetComponent<Image>().sprite = continueSprite;
-			videoPaused = true;
-		}
-		else if(!videoInitCheck && videoPaused && !myVideoPlayer.isPlaying)
-		{
-			myVideoPlayer.Play();
-			myAudioSource.Play();
-			myPlayButton.GetComponent<Image>().enabled = false;
-			myPlayButton.GetComponent<Image>().sprite = playSprite;
-			videoPaused = false;
 		}
 		else
 		{
-			StartCoroutine(StartVideo());
+			myVideoPlayer.Play();
+			myPlayButton.GetComponent<Image>().enabled = false;
+			myPlayButton.GetComponent<Image>().sprite = playSprite;
 		}
 	}
 }
