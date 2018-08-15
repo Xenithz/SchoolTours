@@ -47,6 +47,8 @@ public class TrackingManager : MonoBehaviour
     public TabsManager myTabsManagerRef;
     public GameObject arrowSprite;
 
+    public GameObject[] scienceBubbles;
+
     private void Start()
     {
 
