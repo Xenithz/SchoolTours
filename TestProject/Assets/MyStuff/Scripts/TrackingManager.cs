@@ -45,13 +45,16 @@ public class TrackingManager : MonoBehaviour
     public GameObject VuMark;
     public GameObject detectedGameObject;
     public TabsManager myTabsManagerRef;
+
+    public GameObject previousGameObject;
+    public TabsManager previousTabsManager;
+
     public GameObject arrowSprite;
 
     public GameObject[] scienceBubbles;
 
     private void Start()
     {
-
         messenger = FindObjectOfType<MessageManager>();
         instance = this;
         curState = TrackingState.Lost;
@@ -94,6 +97,8 @@ public class TrackingManager : MonoBehaviour
 
     public void DisableObjects(Vuforia.VuMarkTarget vumarkTargetTracked)
     {
+        previousGameObject = detectedGameObject;
+        previousTabsManager = myTabsManagerRef;
         bool isAnimationDone = true;
         //checks if all the animations on the detected object were done.
         foreach (Animator anim in detectedGameObject.GetComponentsInChildren<Animator>())
@@ -169,6 +174,11 @@ public class TrackingManager : MonoBehaviour
         }
         ResetTracking();
         if (messenger != null) messenger.HideMessage();
+
+        if(detectedGameObject != previousGameObject)
+        {
+            previousTabsManager.Close();
+        }
     }
 
     public void ResetTracking()
