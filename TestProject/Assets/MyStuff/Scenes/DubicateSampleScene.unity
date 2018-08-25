@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Welcome%20to%20GEMS%20Metropole%20School%20-%20Dubai.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/welcomegems.mp4
 --- !u!114 &88447697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29449,7 +29449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Little%20Beakers%20-%20Science%20Lab%20for%20Kids.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/littlebeakers.mp4
 --- !u!114 &844210900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32508,161 +32508,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!43 &1046423851
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Vumark247084
-  serializedVersion: 9
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 6
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 4
-    localAABB:
-      m_Center: {x: 0.0008536428, y: 0, z: -0.0020902753}
-      m_Extent: {x: 0.5, y: 0, z: 0.46968314}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200020001000300
-  m_VertexData:
-    serializedVersion: 2
-    m_VertexCount: 4
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 128
-    _typelessdata: 1d90ffbe00000000498cf1be00000000ffff7f3f0000000000000000000000001d90ffbe000000005568ef3e00000000ffff7f3f00000000000000000000803ff237003f00000000498cf1be00000000ffff7f3f000000000000803f00000000f237003f000000005568ef3e00000000ffff7f3f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.0008536428, y: 0, z: -0.0020902753}
-    m_Extent: {x: 0.5, y: 0, z: 0.46968314}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
 --- !u!1 &1051991263
 GameObject:
   m_ObjectHideFlags: 0
@@ -33255,7 +33100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Architectural%20Animation%20-%20Lab%20Design.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/Architectural.mp4
 --- !u!114 &1064480031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36238,6 +36083,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400120, guid: 114fd5ef18971834cb4a110bf68d3bba,
     type: 3}
   m_PrefabInternal: {fileID: 195715119}
+--- !u!21 &1216721504
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'blankborderMaterial
+
+    17072'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 2cb5883b844f90594cda5086fe59159d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1225134093
 GameObject:
   m_ObjectHideFlags: 0
@@ -36385,7 +36257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Art%20Education%20Students%20Create%20Projects%20for%20Elementary%20School.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/arteducationprojects.mp4
 --- !u!114 &1225961466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38040,33 +37912,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1322781751}
   m_Mesh: {fileID: 4300036, guid: 65d08f5e7106c4319ba1caf344fc8292, type: 3}
---- !u!21 &1333481358
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'blankborderMaterial
-
-    247084'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2cb5883b844f90594cda5086fe59159d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1334416436
 GameObject:
   m_ObjectHideFlags: 0
@@ -40085,7 +39930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Physical%20Education%20(2).mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/physicaled.mp4
 --- !u!114 &1396814257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41585,7 +41430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/campustour.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/campustour.mp4
 --- !u!114 &1459526426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42288,7 +42133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/principal.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/vid.mp4
 --- !u!114 &1514798771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42482,7 +42327,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1523882323}
-  m_Mesh: {fileID: 1046423851}
+  m_Mesh: {fileID: 1826230517}
 --- !u!23 &1523882325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42498,7 +42343,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1333481358}
+  - {fileID: 1216721504}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43943,7 +43788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258774}
+  m_AnchoredPosition: {x: 0, y: -0.000030517449}
   m_SizeDelta: {x: -441.5, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1593566638
@@ -46984,6 +46829,161 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 5ec1a511ffa7c41b6a67c1d65939812b,
     type: 3}
   m_PrefabInternal: {fileID: 1637882165}
+--- !u!43 &1826230517
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Vumark17072
+  serializedVersion: 9
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0.0008536428, y: 0, z: -0.0020902753}
+      m_Extent: {x: 0.5, y: 0, z: 0.46968314}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200020001000300
+  m_VertexData:
+    serializedVersion: 2
+    m_VertexCount: 4
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 128
+    _typelessdata: 1d90ffbe00000000498cf1be00000000ffff7f3f0000000000000000000000001d90ffbe000000005568ef3e00000000ffff7f3f00000000000000000000803ff237003f00000000498cf1be00000000ffff7f3f000000000000803f00000000f237003f000000005568ef3e00000000ffff7f3f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.0008536428, y: 0, z: -0.0020902753}
+    m_Extent: {x: 0.5, y: 0, z: 0.46968314}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimized: 0
 --- !u!1 &1826585080
 GameObject:
   m_ObjectHideFlags: 0
@@ -54430,6 +54430,8 @@ MonoBehaviour:
   VuMark: {fileID: 1523882323}
   detectedGameObject: {fileID: 0}
   myTabsManagerRef: {fileID: 0}
+  previousGameObject: {fileID: 0}
+  previousTabsManager: {fileID: 0}
   arrowSprite: {fileID: 392376326}
   scienceBubbles:
   - {fileID: 1822913233}
@@ -55100,7 +55102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Before%20and%20After%20School%20Care%20for%20ages%205%20-%2013%20at%20The%20Childrens%20Courtyard%20(Virtual%20Tour).mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/beforeandafter.mp4
 --- !u!114 &2022771740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57397,7 +57399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfc39eea8b484b68a7f601eeb65c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPath: https://amcg.000webhostapp.com/videos/Shedeck%20Elementary%20Cafeteria%20Procedures.mp4
+  videoPath: http://protodesignworx.com/SchoolMateVideos/cafetproced.mp4
 --- !u!114 &2129054735
 MonoBehaviour:
   m_ObjectHideFlags: 0
