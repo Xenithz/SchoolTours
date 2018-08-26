@@ -50,6 +50,11 @@ public class RawImageToVideo : MonoBehaviour
         };
     }
 
+	private void OnEnable()
+	{
+		myPlayButton.GetComponent<Image>().enabled = true;
+	}
+
 	private void OnDisable()
 	{
 		myVideoPlayer.Stop();
